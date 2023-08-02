@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 android {
-    namespace 'com.example.portfolio'
+    namespace 'com.example.portfolio.domain'
     compileSdkVersion rootProject.ext.compile_sdk_version
 
     defaultConfig {
