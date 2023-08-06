@@ -1,11 +1,10 @@
 package com.example.portfolio
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.example.portfolio.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    override fun initView() {}
+
+    override fun getScreenName(): String = getString(R.string.screen_activity_main)
+    override fun getNavHostFragmentId(): Int = binding.navHostFragment.id
 }

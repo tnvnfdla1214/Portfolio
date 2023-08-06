@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="screen_activity_main">Main Activity</string>
+    <string name="screen_fragment_main">Main Fragment</string>
+    <string name="screen_fragment_nav_base">Nav Base Fragment</string>
+    <string name="screen_fragment_nav_home">Nav Home Fragment</string>
+    <string name="screen_fragment_nav_my_page">Nav MyPage Fragment</string>
+
+</resources>
