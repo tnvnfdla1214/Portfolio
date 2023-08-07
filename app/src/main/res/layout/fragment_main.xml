@@ -15,7 +15,7 @@
                 android:id="@+id/nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="JacPack Navigation" />
+                app:text="JatPack Navigation" />
 
         </LinearLayout>
 
