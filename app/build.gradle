@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -98,6 +99,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$navigation_version")
 
     implementation "androidx.cardview:cardview:$cardview_version"
+
+    implementation(platform("com.google.firebase:firebase-bom:$firebase_bom_version"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
 
 kapt {
