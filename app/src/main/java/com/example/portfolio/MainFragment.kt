@@ -9,6 +9,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         binding.nav.setOnClickListener {
             NavTarget.toNavigate(navController)
         }
+
+        binding.crash.setOnClickListener {
+            NavTarget.toCrash(navController)
+        }
     }
 
     override fun getScreenName(): String = getString(R.string.screen_fragment_main)
