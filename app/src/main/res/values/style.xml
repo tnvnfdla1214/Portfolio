@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Spindle"/>
+    <style name="Spindle.Tooltip"/>
+    <style name="Spindle.Tooltip.Animation">
+        <item name="android:windowEnterAnimation">@anim/spindle_tooltip_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/spindle_tooltip_fade_out</item>
+    </style>
+
+</resources>

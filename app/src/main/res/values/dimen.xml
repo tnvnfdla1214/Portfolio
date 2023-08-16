@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tooltip_label_safe_padding">6dp</dimen>
+    <dimen name="tutorial_tooltip_arrow_boundary">12dp</dimen>
+    <dimen name="tooltip_arrow_size">10dp</dimen>
+    <dimen name="tutorial_highlight_margin">2dp</dimen>
+    <dimen name="tutorial_highlight_radius">2dp</dimen>
+
+</resources>

@@ -8,4 +8,96 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#FFFFD700</color>
+
+    <!-- Grayscale -->
+    <color name ="theme_color_palette_gray_5">#F8F9FA</color>
+    <color name ="theme_color_palette_gray_10">#F1F3F5</color>
+    <color name ="theme_color_palette_gray_15">#DEE2E6</color>
+    <color name ="theme_color_palette_gray_20">#ADB5BD</color>
+    <color name ="theme_color_palette_gray_30">#868E96</color>
+    <color name ="theme_color_palette_gray_40">#6D757E</color>
+    <color name ="theme_color_palette_gray_50">#5F666D</color>
+    <color name ="theme_color_palette_gray_60">#51575C</color>
+    <color name ="theme_color_palette_gray_70">#3B4044</color>
+    <color name ="theme_color_palette_gray_80">#31363A</color>
+    <color name ="theme_color_palette_gray_90">#212529</color>
+
+    <!-- Blue -->
+    <color name="theme_color_palette_blue_5">#e3f2fd</color>
+    <color name="theme_color_palette_blue_10">#bbdefb</color>
+    <color name="theme_color_palette_blue_20">#90c9f9</color>
+    <color name="theme_color_palette_blue_30">#63b4f6</color>
+    <color name="theme_color_palette_blue_40">#42a4f5</color>
+    <color name="theme_color_palette_blue_50">#2196F3</color>
+    <color name="theme_color_palette_blue_60">#1f87e5</color>
+    <color name="theme_color_palette_blue_70">#1a75d2</color>
+    <color name="theme_color_palette_blue_80">#1661BA</color>
+    <color name="theme_color_palette_blue_90">#0F439C</color>
+
+    <!-- Green -->
+    <color name="theme_color_palette_green_5">#e6f9ea</color>
+    <color name="theme_color_palette_green_10">#c3f0cb</color>
+    <color name="theme_color_palette_green_20">#9be7aa</color>
+    <color name="theme_color_palette_green_30">#6bde86</color>
+    <color name="theme_color_palette_green_40">#3BD569</color>
+    <color name="theme_color_palette_green_50">#00cc4b</color>
+    <color name="theme_color_palette_green_60">#00bc41</color>
+    <color name="theme_color_palette_green_70">#00a934</color>
+    <color name="theme_color_palette_green_80">#008C24</color>
+    <color name="theme_color_palette_green_90">#007011</color>
+
+    <!-- Navy -->
+    <color name="theme_color_palette_navy_5">#E9EDF7</color>
+    <color name="theme_color_palette_navy_10">#C3CEE9</color>
+    <color name="theme_color_palette_navy_20">#96AAD9</color>
+    <color name="theme_color_palette_navy_30">#7891CE</color>
+    <color name="theme_color_palette_navy_40">#4F71BF</color>
+    <color name="theme_color_palette_navy_50">#395BAC</color>
+    <color name="theme_color_palette_navy_60">#335199</color>
+    <color name="theme_color_palette_navy_70">#2D4786</color>
+    <color name="theme_color_palette_navy_80">#273D72</color>
+    <color name="theme_color_palette_navy_90">#21335F</color>
+
+    <!-- Orange -->
+    <color name="theme_color_palette_orange_5">#fef3e0</color>
+    <color name="theme_color_palette_orange_10">#fedfb2</color>
+    <color name="theme_color_palette_orange_20">#fdcb80</color>
+    <color name="theme_color_palette_orange_30">#fcb64d</color>
+    <color name="theme_color_palette_orange_40">#fca626</color>
+    <color name="theme_color_palette_orange_50">#FB9600</color>
+    <color name="theme_color_palette_orange_60">#f78b00</color>
+    <color name="theme_color_palette_orange_70">#f17b00</color>
+    <color name="theme_color_palette_orange_80">#DB6300</color>
+    <color name="theme_color_palette_orange_90">#C94800</color>
+
+    <!-- Red -->
+    <color name="theme_color_palette_red_5">#ffedf0</color>
+    <color name="theme_color_palette_red_10">#FFBDBD</color>
+    <color name="theme_color_palette_red_20">#FF9794</color>
+    <color name="theme_color_palette_red_30">#FF7F7A</color>
+    <color name="theme_color_palette_red_40">#f8635f</color>
+    <color name="theme_color_palette_red_50">#FF5848</color>
+    <color name="theme_color_palette_red_60">#ef4e46</color>
+    <color name="theme_color_palette_red_70">#dd443f</color>
+    <color name="theme_color_palette_red_80">#B53631</color>
+    <color name="theme_color_palette_red_90">#8C2721</color>
+
+
+    <!-- Transparent -->
+
+    <!-- White -->
+    <color name="theme_color_palette_transparent_white_5">#0DFFFFFF</color>
+    <color name="theme_color_palette_transparent_white_10">#1AFFFFFF</color>
+    <color name="theme_color_palette_transparent_white_15">#26FFFFFF</color>
+    <color name="theme_color_palette_transparent_white_35">#59FFFFFF</color>
+    <color name="theme_color_palette_transparent_white_50">#80FFFFFF</color>
+    <color name="theme_color_palette_transparent_white_60">#99FFFFFF</color>
+
+    <!-- Black -->
+    <color name="theme_color_palette_transparent_black_5">#0D000000</color>
+    <color name="theme_color_palette_transparent_black_10">#1A000000</color>
+    <color name="theme_color_palette_transparent_black_15">#26000000</color>
+    <color name="theme_color_palette_transparent_black_35">#59000000</color>
+    <color name="theme_color_palette_transparent_black_50">#80000000</color>
+    <color name="theme_color_palette_transparent_black_60">#99000000</color>
 </resources>

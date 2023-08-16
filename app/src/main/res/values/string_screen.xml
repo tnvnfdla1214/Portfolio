@@ -7,5 +7,7 @@
     <string name="screen_fragment_nav_home">Nav Home Fragment</string>
     <string name="screen_fragment_nav_my_page">Nav MyPage Fragment</string>
     <string name="screen_fragment_crash">Crash Fragment</string>
+    <string name="screen_fragment_custom_base">Custom Base Fragment</string>
+    <string name="screen_fragment_custom_1">Custom1 Fragment</string>
 
 </resources>

@@ -6,12 +6,18 @@ import com.example.portfolio.util.navigation.NavTarget
 class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun initView() {
-        binding.nav.setOnClickListener {
-            NavTarget.toNavigate(navController)
-        }
+        binding.run {
+            nav.setOnClickListener {
+                NavTarget.toNavigate(navController)
+            }
 
-        binding.crash.setOnClickListener {
-            NavTarget.toCrash(navController)
+            crash.setOnClickListener {
+                NavTarget.toCrash(navController)
+            }
+
+            custom.setOnClickListener {
+                NavTarget.toCustom(navController)
+            }
         }
     }
 

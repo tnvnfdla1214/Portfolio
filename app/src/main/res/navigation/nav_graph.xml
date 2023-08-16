@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_mainFragment_to_crashFragment"
             app:destination="@id/crashFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_customViewBaseFragment"
+            app:destination="@id/customViewBaseFragment" />
     </fragment>
 
     <fragment
@@ -29,5 +32,19 @@
         android:name="com.example.portfolio.crash.CrashFragment"
         android:label="CrashFragment"
         tools:layout="@layout/fragment_crash"/>
+    <fragment
+        android:id="@+id/customViewBaseFragment"
+        android:name="com.example.portfolio.customView.CustomViewBaseFragment"
+        android:label="CustomViewBaseFragment"
+        tools:layout="@layout/fragment_custom_view_base">
+        <action
+            android:id="@+id/action_customViewBaseFragment_to_custom1Frgment"
+            app:destination="@id/custom1Frgment" />
+    </fragment>
+    <fragment
+        android:id="@+id/custom1Frgment"
+        android:name="com.example.portfolio.customView.Custom1Frgment"
+        android:label="Custom1Frgment"
+        tools:layout="@layout/fragment_custom1"/>
 
 </navigation>
