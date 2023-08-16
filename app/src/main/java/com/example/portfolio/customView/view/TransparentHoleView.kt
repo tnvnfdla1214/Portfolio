@@ -1,5 +1,6 @@
 package com.example.portfolio.customView.view
 
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
@@ -19,6 +20,7 @@ class TransparentHoleView(context: Context, attrs: AttributeSet? = null) : View(
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val backgroundPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var holeBounds: RectF? = null
+    private var holeAlpha = 0f
 
     init {
         paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
@@ -38,6 +40,7 @@ class TransparentHoleView(context: Context, attrs: AttributeSet? = null) : View(
         canvas?.drawRect(0f, 0f, width.toFloat(), height.toFloat(), backgroundPaint)
         holeBounds?.let {
             paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+            paint.alpha = holeAlpha.toInt()
 
             val cornerRadius = context.dp(
                 context.dimen(R.dimen.tutorial_highlight_radius)

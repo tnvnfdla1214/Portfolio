@@ -3,8 +3,8 @@ package com.example.portfolio.customView.view
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
@@ -19,7 +19,7 @@ import com.example.portfolio.databinding.TutorialTooltipLabelBinding
 import com.example.portfolio.utils.dimen
 import com.example.portfolio.utils.getViewPointOnScreen
 
-class TutorialTooltipLabel(
+class TooltipLabel(
     context: Context,
     private val builder: Builder,
 ) {
@@ -97,12 +97,14 @@ class TutorialTooltipLabel(
 
     private fun initializeTooltipListeners() {
         binding.wrapper.setOnClickListener {
+            Log.d("qweqwe", "initializeTooltipListeners")
             bodyWindow.dismiss()
             builder.onClickListener?.onClick()
         }
     }
 
-    fun toolTipDissmiss() {
+    fun toolTipDismiss() {
+        Log.d("qweqwe", "toolTipDismiss")
         bodyWindow.dismiss()
     }
 
@@ -225,24 +227,16 @@ class TutorialTooltipLabel(
     }
 
     class Builder(private val context: Context) {
-        @JvmField
-        @set:JvmSynthetic
+
         var message: CharSequence = ""
 
-        @JvmField
         @ColorInt
-        @set:JvmSynthetic
         var backgroundColor = ContextCompat.getColor(context, R.color.theme_color_palette_gray_90)
 
-        @JvmField
-        @set:JvmSynthetic
         var tooltipPosition = OverlayTutorialViewItemTooltipPosition.TOP
 
-        @JvmField
-        @set:JvmSynthetic
         var animation = R.style.Spindle_Tooltip_Animation
 
-        @set:JvmSynthetic
         var onClickListener: OnClickListener? = null
 
         fun setOnClickListener(onClickListener: OnClickListener): Builder = apply {
@@ -266,6 +260,6 @@ class TutorialTooltipLabel(
                 this.tooltipPosition = tooltipPosition
             }
 
-        fun build(): TutorialTooltipLabel = TutorialTooltipLabel(context, this)
+        fun build(): TooltipLabel = TooltipLabel(context, this)
     }
 }

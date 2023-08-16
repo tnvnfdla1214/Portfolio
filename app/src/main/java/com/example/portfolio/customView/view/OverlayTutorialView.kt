@@ -17,7 +17,7 @@ class OverlayTutorialView(context: Context) : ConstraintLayout(context) {
     private var currentStep = 0
     private lateinit var tutorialItems: List<OverlayTutorialViewItem>
     private val transparentHoleView = TransparentHoleView(context)
-    private lateinit var spindleTutorialTooltipLabel: TutorialTooltipLabel
+    private lateinit var spindleTutorialTooltipLabel: TooltipLabel
     private var boundaryView: View? = null
 
     var listener: OverlayTutorialListener? = null
@@ -32,7 +32,7 @@ class OverlayTutorialView(context: Context) : ConstraintLayout(context) {
         }
         setOnClickListener {
             showNextStep()
-            spindleTutorialTooltipLabel.toolTipDissmiss()
+            spindleTutorialTooltipLabel.toolTipDismiss()
             nextStepTvTab()
         }
         listener?.onOverlayTutorialVisibilityChanged(true)
@@ -92,7 +92,7 @@ class OverlayTutorialView(context: Context) : ConstraintLayout(context) {
 
     fun onDismiss() {
         listener?.onOverlayTutorialVisibilityChanged(false)
-        spindleTutorialTooltipLabel.toolTipDissmiss()
+        spindleTutorialTooltipLabel.toolTipDismiss()
         (parent as? ViewGroup)?.removeView(this@OverlayTutorialView)
     }
 
@@ -125,11 +125,11 @@ class OverlayTutorialView(context: Context) : ConstraintLayout(context) {
         view: View,
         page: String,
     ) {
-        spindleTutorialTooltipLabel = TutorialTooltipLabel.Builder(context)
+        spindleTutorialTooltipLabel = TooltipLabel.Builder(context)
             .setMessage(message)
             .setTooltipPosition(tooltipLabelPosition)
-            .setColor(TutorialTooltipLabel.Color.NEUTRAL)
-            .setOnClickListener(object : TutorialTooltipLabel.Builder.OnClickListener {
+            .setColor(TooltipLabel.Color.NEUTRAL)
+            .setOnClickListener(object : TooltipLabel.Builder.OnClickListener {
                 override fun onClick() {
                     showNextStep()
                 }
