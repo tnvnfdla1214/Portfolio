@@ -5,6 +5,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.portfolio.BaseFragment
 import com.example.portfolio.R
+import com.example.portfolio.customView.view.BottomSheetView
 import com.example.portfolio.customView.view.OverlayTutorialListener
 import com.example.portfolio.customView.view.OverlayTutorialView
 import com.example.portfolio.customView.view.OverlayTutorialViewItem
@@ -20,6 +21,10 @@ class Custom1Frgment :
     override fun initView() {
         binding.onboardingButton.setOnClickListener {
             showOverlayTutorial()
+        }
+        binding.bottomSheetButton.setOnClickListener {
+            val bottomSheetView = BottomSheetView()
+            bottomSheetView.show(parentFragmentManager, "BOTTOM_SHEET_TAG")
         }
     }
 

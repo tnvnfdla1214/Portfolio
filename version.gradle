@@ -38,4 +38,6 @@ ext {
 
     cardview_version = '1.0.0'
     firebase_bom_version = '32.2.2'
+
+    material_version = '1.7.0'
 }
