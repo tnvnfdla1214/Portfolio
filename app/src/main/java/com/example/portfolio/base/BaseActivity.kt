@@ -1,4 +1,4 @@
-package com.example.portfolio
+package com.example.portfolio.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

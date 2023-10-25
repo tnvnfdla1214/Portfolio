@@ -2,8 +2,8 @@ package com.example.portfolio.navigate
 
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.portfolio.BaseFragment
 import com.example.portfolio.R
+import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentNavBaseBinding
 
 class NavBaseFragment : BaseFragment<FragmentNavBaseBinding>(R.layout.fragment_nav_base) {

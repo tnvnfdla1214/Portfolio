@@ -1,5 +1,7 @@
-package com.example.portfolio
+package com.example.portfolio.main
 
+import com.example.portfolio.R
+import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentMainBinding
 import com.example.portfolio.util.navigation.NavTarget
 

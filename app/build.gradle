@@ -7,6 +7,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -106,6 +107,8 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-ktx")
 
     implementation("com.google.android.material:material:$material_version")
+
+    implementation "com.kakao.sdk:v2-all:$kakao_all_version"
 }
 
 kapt {

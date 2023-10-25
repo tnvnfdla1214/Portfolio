@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kakao_base_url">https://dapi.kakao.com/</string>
+    <string name="api_base_url">https://portfolio.com/</string>
+</resources>

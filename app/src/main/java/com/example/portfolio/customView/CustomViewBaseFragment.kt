@@ -1,7 +1,7 @@
 package com.example.portfolio.customView
 
-import com.example.portfolio.BaseFragment
 import com.example.portfolio.R
+import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentCustomViewBaseBinding
 import com.example.portfolio.util.navigation.NavTarget
 

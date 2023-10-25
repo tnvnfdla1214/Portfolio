@@ -1,7 +1,7 @@
 package com.example.portfolio.navigate
 
-import com.example.portfolio.BaseFragment
 import com.example.portfolio.R
+import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentNavHomeBinding
 
 class NavHomeFragment : BaseFragment<FragmentNavHomeBinding>(R.layout.fragment_nav_home) {

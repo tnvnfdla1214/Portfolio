@@ -1,7 +1,7 @@
 package com.example.portfolio.crash
 
-import com.example.portfolio.BaseFragment
 import com.example.portfolio.R
+import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentCrashBinding
 import java.lang.RuntimeException
 

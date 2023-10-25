@@ -1,5 +1,7 @@
-package com.example.portfolio
+package com.example.portfolio.main
 
+import com.example.portfolio.R
+import com.example.portfolio.base.BaseActivity
 import com.example.portfolio.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {

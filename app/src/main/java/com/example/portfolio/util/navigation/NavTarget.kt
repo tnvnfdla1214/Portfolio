@@ -1,8 +1,8 @@
 package com.example.portfolio.util.navigation
 
 import androidx.navigation.NavController
-import com.example.portfolio.MainFragmentDirections
 import com.example.portfolio.customView.CustomViewBaseFragmentDirections
+import com.example.portfolio.main.MainFragmentDirections
 
 object NavTarget {
 

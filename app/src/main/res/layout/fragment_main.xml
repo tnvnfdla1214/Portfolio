@@ -15,7 +15,8 @@
                 android:id="@+id/nav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="JatPack Navigation" />
+                app:text="JatPack Navigation | WorkManager | Room DB | Paging | Coroutine | Flow | Hilt"
+                app:isMarquee="true"/>
 
             <com.example.portfolio.view.MenuItemView
                 android:id="@+id/crash"

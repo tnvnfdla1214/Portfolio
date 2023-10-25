@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="menuItemView">
         <attr name="text" format="string|reference" />
+        <attr name="isMarquee" format="boolean"/>
     </declare-styleable>
 </resources>
