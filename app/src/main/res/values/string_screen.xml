@@ -9,5 +9,6 @@
     <string name="screen_fragment_crash">Crash Fragment</string>
     <string name="screen_fragment_custom_base">Custom Base Fragment</string>
     <string name="screen_fragment_custom_1">Custom1 Fragment</string>
+    <string name="screen_fragment_test_base">Test Base Fragment</string>
 
 </resources>

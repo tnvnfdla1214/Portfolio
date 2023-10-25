@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_mainFragment_to_customViewBaseFragment"
             app:destination="@id/customViewBaseFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_testFragment"
+            app:destination="@id/testFragment" />
     </fragment>
 
     <fragment
@@ -41,10 +44,27 @@
             android:id="@+id/action_customViewBaseFragment_to_custom1Frgment"
             app:destination="@id/custom1Frgment" />
     </fragment>
+
     <fragment
         android:id="@+id/custom1Frgment"
         android:name="com.example.portfolio.customView.Custom1Frgment"
         android:label="Custom1Frgment"
         tools:layout="@layout/fragment_custom1"/>
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.portfolio.test.TestBaseFragment"
+        android:label="testFragment"
+        tools:layout="@layout/fragment_test_base">
+        <action
+            android:id="@+id/action_testFragment_to_imageTestFragment"
+            app:destination="@id/imageTestFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageTestFragment"
+        android:name="com.example.portfolio.test.ImageTestFragment"
+        android:label="testFragment"
+        tools:layout="@layout/fragment_image_test"/>
 
 </navigation>

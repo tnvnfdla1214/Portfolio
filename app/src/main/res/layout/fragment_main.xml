@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 app:text="Custom View" />
 
+            <com.example.portfolio.view.MenuItemView
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="Test"/>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
             custom.setOnClickListener {
                 NavTarget.toCustom(navController)
             }
+
+            test.setOnClickListener {
+                NavTarget.toTest(navController)
+            }
         }
     }
 

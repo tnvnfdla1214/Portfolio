@@ -109,6 +109,10 @@ dependencies {
     implementation("com.google.android.material:material:$material_version")
 
     implementation "com.kakao.sdk:v2-all:$kakao_all_version"
+
+    //이미지
+    implementation 'com.squareup.picasso:picasso:2.8'
+
 }
 
 kapt {
