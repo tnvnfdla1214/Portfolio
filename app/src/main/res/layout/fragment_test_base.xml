@@ -11,7 +11,8 @@
             android:id="@+id/image_test1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:text="Image Loader Library 비교 테스트" />
+            app:text="Image Loader Library 비교 테스트"
+            app:isMarquee="true"/>
 
         <com.example.portfolio.view.MenuItemView
             android:id="@+id/image_test2"
