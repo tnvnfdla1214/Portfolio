@@ -7,8 +7,11 @@ import com.example.portfolio.util.navigation.NavTarget
 
 class TestBaseFragment : BaseFragment<FragmentTestBaseBinding>(R.layout.fragment_test_base) {
     override fun initView() {
-        binding.imageTest.setOnClickListener {
-            NavTarget.toImageTest(navController)
+        binding.imageTest1.setOnClickListener {
+            NavTarget.toImageTest1(navController)
+        }
+        binding.imageTest2.setOnClickListener {
+            NavTarget.toImageTest2(navController)
         }
     }
 

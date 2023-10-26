@@ -10,5 +10,7 @@
     <string name="screen_fragment_custom_base">Custom Base Fragment</string>
     <string name="screen_fragment_custom_1">Custom1 Fragment</string>
     <string name="screen_fragment_test_base">Test Base Fragment</string>
+    <string name="screen_fragment_test_image">Test image Fragment</string>
+    <string name="screen_fragment_test_image_list">Test image list Fragment</string>
 
 </resources>

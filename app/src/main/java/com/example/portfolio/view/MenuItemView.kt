@@ -28,6 +28,7 @@ class MenuItemView(context: Context, attrs: AttributeSet) : LinearLayout(context
     private fun activeIsMarquee(textActive: Boolean) {
         if (textActive) {
             binding.text.ellipsize = TextUtils.TruncateAt.MARQUEE
+            binding.text.isSelected = true
         }
     }
 }

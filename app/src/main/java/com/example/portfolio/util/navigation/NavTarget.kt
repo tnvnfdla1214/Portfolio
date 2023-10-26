@@ -23,7 +23,11 @@ object NavTarget {
         navController.navigate(CustomViewBaseFragmentDirections.actionCustomViewBaseFragmentToCustom1Frgment())
     }
 
-    fun toImageTest(navController: NavController) {
+    fun toImageTest1(navController: NavController) {
+        navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
+    }
+
+    fun toImageTest2(navController: NavController) {
         navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
     }
 

@@ -1,4 +1,4 @@
-package com.example.data.network
+package com.example.portfolio.network
 
 object Constants {
     const val KAKAO_TAG = "KAKAO"
@@ -9,5 +9,4 @@ object Constants {
     const val ACCESSKEY = "AccessKey"
     const val AUTHORIZATION = "Authorization"
     const val HEADER_ACCESSKEY = "accessKey"
-
 }

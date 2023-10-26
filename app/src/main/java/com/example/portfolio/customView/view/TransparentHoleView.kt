@@ -1,6 +1,5 @@
 package com.example.portfolio.customView.view
 
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas

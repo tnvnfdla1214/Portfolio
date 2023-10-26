@@ -1,7 +1,7 @@
 package com.example.portfolio.network
 
-import com.example.data.network.Constants.ACCESSKEY
-import com.example.data.network.Constants.HEADER_ACCESSKEY
+import com.example.portfolio.network.Constants.ACCESSKEY
+import com.example.portfolio.network.Constants.HEADER_ACCESSKEY
 import okhttp3.Interceptor
 import okhttp3.Response
 
