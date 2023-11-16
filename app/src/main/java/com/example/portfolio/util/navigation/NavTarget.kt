@@ -22,7 +22,7 @@ object NavTarget {
         navController.navigate(CustomViewBaseFragmentDirections.actionCustomViewBaseFragmentToCustom1Frgment())
     }
 
-    fun toAudioList(navController: NavController) {
-        navController.navigate(MainFragmentDirections.actionMainFragmentToAudioListFragment())
+    fun toAudioTrackList(navController: NavController) {
+        navController.navigate(MainFragmentDirections.actionMainFragmentToAudioTrackListFragment())
     }
 }

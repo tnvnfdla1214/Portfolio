@@ -21,8 +21,8 @@
             android:id="@+id/action_mainFragment_to_customViewBaseFragment"
             app:destination="@id/customViewBaseFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_audioListFragment"
-            app:destination="@id/audioListFragment" />
+            android:id="@+id/action_mainFragment_to_audioTrackListFragment"
+            app:destination="@id/audioTrackListFragment" />
     </fragment>
 
     <fragment
@@ -53,9 +53,9 @@
 
 
     <fragment
-        android:id="@+id/audioListFragment"
-        android:name="com.example.portfolio.audio.AudioListFragment"
-        android:label="AudioListFragment"
-        tools:layout="@layout/fragment_audio_list"/>
+        android:id="@+id/audioTrackListFragment"
+        android:name="com.example.portfolio.audio.AudioTrackListFragment"
+        android:label="AudioTrackListFragment"
+        tools:layout="@layout/fragment_audio_track_list"/>
 
 </navigation>
