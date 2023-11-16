@@ -21,8 +21,8 @@
             android:id="@+id/action_mainFragment_to_customViewBaseFragment"
             app:destination="@id/customViewBaseFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_testFragment"
-            app:destination="@id/testFragment" />
+            android:id="@+id/action_mainFragment_to_audioListFragment"
+            app:destination="@id/audioListFragment" />
     </fragment>
 
     <fragment
@@ -51,29 +51,11 @@
         android:label="Custom1Frgment"
         tools:layout="@layout/fragment_custom1"/>
 
-    <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.portfolio.test.TestBaseFragment"
-        android:label="testFragment"
-        tools:layout="@layout/fragment_test_base">
-        <action
-            android:id="@+id/action_testFragment_to_imageTestFragment"
-            app:destination="@id/imageTestFragment" />
-        <action
-            android:id="@+id/action_testFragment_to_imageTestListFragment"
-            app:destination="@id/imageTestListFragment" />
-    </fragment>
 
     <fragment
-        android:id="@+id/imageTestFragment"
-        android:name="com.example.portfolio.test.ImageTestFragment"
-        android:label="testFragment"
-        tools:layout="@layout/fragment_image_test"/>
-
-    <fragment
-        android:id="@+id/imageTestListFragment"
-        android:name="com.example.portfolio.test.ImageTestListFragment"
-        android:label="testListFragment"
-        tools:layout="@layout/fragment_image_test_list"/>
+        android:id="@+id/audioListFragment"
+        android:name="com.example.portfolio.audio.AudioListFragment"
+        android:label="AudioListFragment"
+        tools:layout="@layout/fragment_audio_list"/>
 
 </navigation>

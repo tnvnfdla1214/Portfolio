@@ -3,7 +3,6 @@ package com.example.portfolio.util.navigation
 import androidx.navigation.NavController
 import com.example.portfolio.customView.CustomViewBaseFragmentDirections
 import com.example.portfolio.main.MainFragmentDirections
-import com.example.portfolio.test.TestBaseFragmentDirections
 
 object NavTarget {
 
@@ -23,15 +22,7 @@ object NavTarget {
         navController.navigate(CustomViewBaseFragmentDirections.actionCustomViewBaseFragmentToCustom1Frgment())
     }
 
-    fun toImageTest1(navController: NavController) {
-        navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
-    }
-
-    fun toImageTest2(navController: NavController) {
-        navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
-    }
-
-    fun toTest(navController: NavController) {
-        navController.navigate(MainFragmentDirections.actionMainFragmentToTestFragment())
+    fun toAudioList(navController: NavController) {
+        navController.navigate(MainFragmentDirections.actionMainFragmentToAudioListFragment())
     }
 }
