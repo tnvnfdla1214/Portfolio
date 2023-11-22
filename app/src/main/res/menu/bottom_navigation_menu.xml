@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navHomeFragment"
+        android:id="@+id/searchBookFragment"
         android:icon="@drawable/ic_home"
-        android:title="홈 화면" />
+        android:title="책 찾기" />
 
     <item
-        android:id="@+id/navMyPageFragment"
+        android:id="@+id/favoriteBookFragment"
         android:icon="@drawable/ic_my_page"
-        android:title="마이 페이지" />
+        android:title="좋아요 책" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="설정" />
 
 </menu>
