@@ -4,10 +4,10 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs'
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
-    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -111,7 +111,17 @@ dependencies {
     implementation "com.kakao.sdk:v2-all:$kakao_all_version"
 
     //이미지
-    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //페이징
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    // Coil
+    implementation "io.coil-kt:coil:$coil_version"
 
 }
 

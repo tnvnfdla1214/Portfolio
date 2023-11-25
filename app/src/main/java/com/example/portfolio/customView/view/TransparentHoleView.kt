@@ -34,9 +34,9 @@ class TransparentHoleView(context: Context, attrs: AttributeSet? = null) : View(
     }
 
     @SuppressLint("DrawAllocation")
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.drawRect(0f, 0f, width.toFloat(), height.toFloat(), backgroundPaint)
+        canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), backgroundPaint)
         holeBounds?.let {
             paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
             paint.alpha = holeAlpha.toInt()
