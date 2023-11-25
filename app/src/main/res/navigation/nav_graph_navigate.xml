@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchBookFragment"
-        android:name="com.example.portfolio.navigate.SearchBookFragment"
+        android:name="com.example.portfolio.navigate.searchBook.SearchBookFragment"
         android:label="SearchBookFragment"
         tools:layout="@layout/fragment_search_book" />
 

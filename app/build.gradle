@@ -116,10 +116,6 @@ dependencies {
     //페이징
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
-    // Moshi
-    implementation "com.squareup.moshi:moshi:$moshi_version"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
-
     // Coil
     implementation "io.coil-kt:coil:$coil_version"
 
