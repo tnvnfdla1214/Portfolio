@@ -5,7 +5,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.portfolio.R
 import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentNavBaseBinding
-
+import dagger.hilt.android.AndroidEntryPoint
+@AndroidEntryPoint
 class NavBaseFragment : BaseFragment<FragmentNavBaseBinding>(R.layout.fragment_nav_base) {
     override fun initView() {
         val navHostFragment =

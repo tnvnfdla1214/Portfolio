@@ -15,7 +15,6 @@ import com.example.portfolio.navigate.searchBook.adapter.BookSearchPagingAdapter
 import com.example.portfolio.network.Constants.SEARCH_BOOKS_TIME_DELAY
 import com.example.portfolio.utils.collectLatestStateFlow
 import dagger.hilt.android.AndroidEntryPoint
-
 @AndroidEntryPoint
 class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.fragment_search_book) {
     private val searchViewModel by viewModels<SearchBookViewModel>()
