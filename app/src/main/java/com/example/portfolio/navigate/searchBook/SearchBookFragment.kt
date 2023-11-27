@@ -12,19 +12,19 @@ import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentSearchBookBinding
 import com.example.portfolio.navigate.searchBook.adapter.BookSearchLoadStateAdapter
 import com.example.portfolio.navigate.searchBook.adapter.BookSearchPagingAdapter
-import com.example.portfolio.network.Constants.SEARCH_BOOKS_TIME_DELAY
 import com.example.portfolio.utils.collectLatestStateFlow
 import dagger.hilt.android.AndroidEntryPoint
+
 @AndroidEntryPoint
 class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.fragment_search_book) {
-    private val searchViewModel by viewModels<SearchBookViewModel>()
+    private val viewModel by viewModels<SearchBookViewModel>()
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
     override fun initView() {
         setupRecyclerView()
         searchBooks()
         setupLoadState()
 
-        collectLatestStateFlow(searchViewModel.searchPagingResult) {
+        collectLatestStateFlow(viewModel.searchPagingResult) {
             bookSearchAdapter.submitData(it)
         }
     }
@@ -58,7 +58,7 @@ class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.frag
         var endTime: Long
 
         binding.etSearch.text =
-            Editable.Factory.getInstance().newEditable(searchViewModel.query)
+            Editable.Factory.getInstance().newEditable(viewModel.query)
 
         binding.etSearch.addTextChangedListener { text: Editable? ->
             endTime = System.currentTimeMillis()
@@ -66,8 +66,8 @@ class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.frag
                 text?.let {
                     val query = it.toString().trim()
                     if (query.isNotEmpty()) {
-                        searchViewModel.searchBooksPaging(query)
-                        searchViewModel.query = query
+                        viewModel.searchBooksPaging(query)
+                        viewModel.query = query
                     }
                 }
             }
@@ -87,5 +87,9 @@ class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.frag
 
             binding.progressBar.isVisible = loadState.refresh is LoadState.Loading
         }
+    }
+
+    companion object {
+        private const val SEARCH_BOOKS_TIME_DELAY = 100L
     }
 }

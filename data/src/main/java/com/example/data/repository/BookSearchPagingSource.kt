@@ -1,6 +1,5 @@
 package com.example.data.repository
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.data.entity.BookEntity
@@ -20,7 +19,6 @@ class BookSearchPagingSource(
             val pageNumber = params.key ?: STARTING_PAGE_INDEX
 
             val response = api.searchBooks(query, sort, pageNumber, params.loadSize)
-            Log.d("qweqwe", "response.body() : " + response.body())
             val endOfPaginationReached = response.body()?.meta?.isEnd!!
 
             val data = response.body()?.documents!!
