@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.example.data.repository.BookSearchRepository
 import com.example.data.util.Sort
 import com.example.domain.model.Book
+import com.example.domain.usecase.FetchBookSearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,21 +19,22 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchBookViewModel @Inject constructor(
-    private val bookSearchRepository: BookSearchRepository,
+    private val fetchBookSearchUseCase: FetchBookSearchUseCase,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     // Paging
     private val _searchPagingResult = MutableStateFlow<PagingData<Book>>(PagingData.empty())
     val searchPagingResult: StateFlow<PagingData<Book>> = _searchPagingResult.asStateFlow()
-
     fun searchBooksPaging(query: String) {
         viewModelScope.launch {
-            bookSearchRepository.searchBooksPaging(query, getSortMode())
-                .cachedIn(viewModelScope)
-                .collect {
-                    _searchPagingResult.value = it
-                }
+            withContext(Dispatchers.IO) {
+                fetchBookSearchUseCase.invoke(query, getSortMode())
+                    .cachedIn(viewModelScope)
+                    .collect {
+                        _searchPagingResult.value = it
+                    }
+            }
         }
     }
 

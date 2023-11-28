@@ -11,6 +11,7 @@ import androidx.paging.map
 import com.example.data.service.BookSearchApi
 import com.example.data.util.Constants.PAGING_SIZE
 import com.example.domain.model.Book
+import com.example.domain.repository.BookSearchRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

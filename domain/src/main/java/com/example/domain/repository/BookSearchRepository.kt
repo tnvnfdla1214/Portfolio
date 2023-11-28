@@ -1,10 +1,8 @@
-package com.example.data.repository
+package com.example.domain.repository
 
 import androidx.paging.PagingData
 import com.example.domain.model.Book
-import com.example.domain.model.Search
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 
 interface BookSearchRepository {
 
@@ -34,5 +32,5 @@ interface BookSearchRepository {
 //    // Paging
 //    fun getFavoritePagingBooks(): Flow<PagingData<Book>>
 
-    fun searchBooksPaging(query: String, sort: String): Flow<PagingData<Book>> //
+    fun searchBooksPaging(query: String, sort: String): Flow<PagingData<Book>>
 }
