@@ -28,13 +28,11 @@ class SearchBookViewModel @Inject constructor(
     val searchPagingResult: StateFlow<PagingData<Book>> = _searchPagingResult.asStateFlow()
     fun searchBooksPaging(query: String) {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                fetchBookSearchUseCase.invoke(query, getSortMode())
-                    .cachedIn(viewModelScope)
-                    .collect {
-                        _searchPagingResult.value = it
-                    }
-            }
+            fetchBookSearchUseCase.invoke(query, getSortMode())
+                .cachedIn(viewModelScope)
+                .collect {
+                    _searchPagingResult.value = it
+                }
         }
     }
 
