@@ -1,8 +1,10 @@
 package com.example.portfolio.util.navigation
 
 import androidx.navigation.NavController
+import com.example.domain.model.Book
 import com.example.portfolio.customView.CustomViewBaseFragmentDirections
 import com.example.portfolio.main.MainFragmentDirections
+import com.example.portfolio.navigate.searchBook.SearchBookFragmentDirections
 import com.example.portfolio.test.TestBaseFragmentDirections
 
 object NavTarget {
@@ -33,5 +35,9 @@ object NavTarget {
 
     fun toTest(navController: NavController) {
         navController.navigate(MainFragmentDirections.actionMainFragmentToTestFragment())
+    }
+
+    fun toBook(navController: NavController, book: Book) {
+        navController.navigate(SearchBookFragmentDirections.actionFragmentSearchBookToFragmentBook(book))
     }
 }

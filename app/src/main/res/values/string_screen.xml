@@ -6,6 +6,7 @@
     <string name="screen_fragment_nav_base">Nav Base Fragment</string>
     <string name="screen_fragment_search_book">Search Book Fragment</string>
     <string name="screen_fragment_favorite_book">Favorite Book Fragment</string>
+    <string name="screen_fragment_book">Book Fragment</string>
     <string name="screen_fragment_settings">Setting Fragment</string>
     <string name="screen_fragment_crash">Crash Fragment</string>
     <string name="screen_fragment_custom_base">Custom Base Fragment</string>
