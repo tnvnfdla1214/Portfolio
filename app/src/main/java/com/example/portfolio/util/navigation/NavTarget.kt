@@ -37,7 +37,7 @@ object NavTarget {
         navController.navigate(MainFragmentDirections.actionMainFragmentToTestFragment())
     }
 
-    fun toBook(navController: NavController, book: Book) {
-        navController.navigate(SearchBookFragmentDirections.actionFragmentSearchBookToFragmentBook(book))
+    fun toBook(navController: NavController, bookJson: String) {
+        navController.navigate(SearchBookFragmentDirections.actionFragmentSearchBookToFragmentBook(bookJson))
     }
 }

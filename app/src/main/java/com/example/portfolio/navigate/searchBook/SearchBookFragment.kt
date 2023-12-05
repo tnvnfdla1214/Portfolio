@@ -48,7 +48,7 @@ class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.frag
                 footer = BookSearchLoadStateAdapter(bookSearchAdapter::retry),
             )
         }
-        bookSearchAdapter.setOnItemClickListener { toBook(navController, it) }
+        bookSearchAdapter.setOnItemClickListener { toBook(navController, it.toJson()) }
     }
 
     private fun searchBooks() {

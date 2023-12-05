@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.domain.model.Book.Companion.fromJson
 import com.example.portfolio.R
 import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentBookBinding
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class BookFragment : BaseFragment<FragmentBookBinding>(R.layout.fragment_book) {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun initView() {
-        val book = args.book
+        val book = fromJson(args.bookJson)
         binding.webview.apply {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
