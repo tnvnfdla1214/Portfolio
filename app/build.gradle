@@ -76,6 +76,8 @@ dependencies {
 
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_extension_version"
+    implementation "androidx.hilt:hilt-work:$hilt_extension_version"
 
     implementation "com.tbuonomo:dotsindicator:$dotsindicator_version"
 
@@ -118,6 +120,8 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil:$coil_version"
+
+    implementation "androidx.work:work-runtime-ktx:$work_manager_version"
 
 }
 

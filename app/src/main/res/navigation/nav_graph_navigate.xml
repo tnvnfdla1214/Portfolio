@@ -23,19 +23,19 @@
         android:id="@+id/favoriteBookFragment"
         android:name="com.example.portfolio.navigate.favorite.FavoriteBookFragment"
         android:label="favoriteBookFragment"
-        tools:layout="@layout/fragment_favorite_book" >
+        tools:layout="@layout/fragment_favorite_book">
         <action
             android:id="@+id/action_favoriteBookFragment_to_fragment_book"
             app:destination="@id/fragment_book"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.portfolio.navigate.SettingsFragment"
+        android:name="com.example.portfolio.navigate.setting.SettingsFragment"
         android:label="settingsFragment"
         tools:layout="@layout/fragment_favorite_book" />
 

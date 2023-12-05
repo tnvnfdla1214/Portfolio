@@ -1,15 +1,10 @@
 package com.example.data.di
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
 import com.example.data.db.BookSearchDatabase
 import com.example.data.service.BookSearchApi
 import com.example.data.util.Constants.BASE_URL
-import com.example.data.util.Constants.DATASTORE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -61,22 +56,4 @@ class NetworkModule {
             BookSearchDatabase::class.java,
             "favorite-books",
         ).build()
-
-    // DataStore
-    @Singleton
-    @Provides
-    fun providePreferencesDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
-        PreferenceDataStoreFactory.create(
-            produceFile = { context.preferencesDataStoreFile(DATASTORE_NAME) },
-        )
-
-    // WorkManager
-//    @Singleton
-//    @Provides
-//    fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
-//        WorkManager.getInstance(context)
-
-    @Singleton
-    @Provides
-    fun provideCacheDeleteResult(): String = "Cache has deleted by Hilt"
 }
