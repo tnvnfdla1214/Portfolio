@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
+import com.example.data.db.BookSearchDatabase
 import com.example.data.service.BookSearchApi
 import com.example.data.util.Constants.BASE_URL
 import com.example.data.util.Constants.DATASTORE_NAME
@@ -52,14 +53,14 @@ class NetworkModule {
     }
 
     // Room
-//    @Singleton
-//    @Provides
-//    fun provideBookSearchDatabase(@ApplicationContext context: Context): BookSearchDatabase =
-//        Room.databaseBuilder(
-//            context.applicationContext,
-//            BookSearchDatabase::class.java,
-//            "favorite-books",
-//        ).build()
+    @Singleton
+    @Provides
+    fun provideBookSearchDatabase(@ApplicationContext context: Context): BookSearchDatabase =
+        Room.databaseBuilder(
+            context.applicationContext,
+            BookSearchDatabase::class.java,
+            "favorite-books",
+        ).build()
 
     // DataStore
     @Singleton

@@ -1,13 +1,13 @@
 package com.example.data.repository
 
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
+import com.example.data.db.BookSearchDatabase
+import com.example.data.entity.BookMapper
 import com.example.data.service.BookSearchApi
 import com.example.data.util.Constants.PAGING_SIZE
 import com.example.domain.model.Book
@@ -19,11 +19,11 @@ import javax.inject.Singleton
 
 @Singleton
 class BookSearchRepositoryImpl @Inject constructor(
-//    private val db: BookSearchDatabase,
-    private val dataStore: DataStore<Preferences>,
+    private val db: BookSearchDatabase,
+    //private val dataStore: DataStore<Preferences>,
     private val api: BookSearchApi,
 ) : BookSearchRepository {
-//    override suspend fun searchBooks(
+    //    override suspend fun searchBooks(
 //        query: String,
 //        sort: String,
 //        page: Int,
@@ -32,17 +32,20 @@ class BookSearchRepositoryImpl @Inject constructor(
 //        return api.searchBooks(query, sort, page, size).map { it.toSearch() }
 //    }
 //
-//    override suspend fun insertBooks(book: Book) {
-//        TODO("Not yet implemented")
-//    }
-//
+    override suspend fun insertBooks(book: Book) {
+        db.bookSearchDao().insertBook(BookMapper.toBookEntity(book))
+    }
+
+    //
 //    override suspend fun deleteBooks(book: Book) {
 //        TODO("Not yet implemented")
 //    }
 //
-//    override fun getFavoriteBooks(): Flow<List<Book>> {
-//        TODO("Not yet implemented")
-//    }
+    override fun getFavoriteBooks(): Flow<List<Book>> {
+        return db.bookSearchDao().getFavoriteBooks()
+            .map { bookEntityList -> bookEntityList.map { it.toBook() } }
+    }
+
 //
 //    override suspend fun saveSortMode(mode: String) {
 //        dataStore.edit { prefs ->

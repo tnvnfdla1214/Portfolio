@@ -12,14 +12,13 @@ interface BookSearchRepository {
 //        page: Int,
 //        size: Int,
 //    ): Response<Search>
-//
-//    // Room
-//    suspend fun insertBooks(book: Book)
-//
+
+    // Room
+    suspend fun insertBooks(book: Book)
+
+    fun getFavoriteBooks(): Flow<List<Book>>
+
 //    suspend fun deleteBooks(book: Book)
-//
-//    fun getFavoriteBooks(): Flow<List<Book>>
-//
 //    // DataStore
 //    suspend fun saveSortMode(mode: String)
 
