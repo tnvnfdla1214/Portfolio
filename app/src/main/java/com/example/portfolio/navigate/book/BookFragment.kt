@@ -27,7 +27,7 @@ class BookFragment : BaseFragment<FragmentBookBinding>(R.layout.fragment_book) {
 
         binding.fabFavorite.setOnClickListener {
             bookViewModel.saveBook(book)
-            Toast.makeText(requireContext(), "Book has saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "책을 저장 하였습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 

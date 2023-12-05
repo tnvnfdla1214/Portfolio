@@ -12,7 +12,7 @@ import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.databinding.FragmentSearchBookBinding
 import com.example.portfolio.navigate.searchBook.adapter.BookSearchLoadStateAdapter
 import com.example.portfolio.navigate.searchBook.adapter.BookSearchPagingAdapter
-import com.example.portfolio.util.navigation.NavTarget.toBook
+import com.example.portfolio.util.navigation.NavTarget.toSearchedBook
 import com.example.portfolio.utils.collectLatestStateFlow
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,7 +48,7 @@ class SearchBookFragment : BaseFragment<FragmentSearchBookBinding>(R.layout.frag
                 footer = BookSearchLoadStateAdapter(bookSearchAdapter::retry),
             )
         }
-        bookSearchAdapter.setOnItemClickListener { toBook(navController, it) }
+        bookSearchAdapter.setOnItemClickListener { toSearchedBook(navController, it) }
     }
 
     private fun searchBooks() {

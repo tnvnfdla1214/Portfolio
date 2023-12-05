@@ -18,7 +18,7 @@ interface BookSearchRepository {
 
     fun getFavoriteBooks(): Flow<List<Book>>
 
-//    suspend fun deleteBooks(book: Book)
+    suspend fun deleteBooks(book: Book)
 //    // DataStore
 //    suspend fun saveSortMode(mode: String)
 
@@ -28,8 +28,8 @@ interface BookSearchRepository {
 //
 //    suspend fun getCacheDeleteMode(): Flow<Boolean>
 //
-//    // Paging
-//    fun getFavoritePagingBooks(): Flow<PagingData<Book>>
+    // Paging
+    fun getFavoritePagingBooks(): Flow<PagingData<Book>>
 
     fun searchBooksPaging(query: String, sort: String): Flow<PagingData<Book>>
 }

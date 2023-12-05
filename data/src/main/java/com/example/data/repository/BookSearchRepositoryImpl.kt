@@ -20,7 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class BookSearchRepositoryImpl @Inject constructor(
     private val db: BookSearchDatabase,
-    //private val dataStore: DataStore<Preferences>,
+    // private val dataStore: DataStore<Preferences>,
     private val api: BookSearchApi,
 ) : BookSearchRepository {
     //    override suspend fun searchBooks(
@@ -36,11 +36,10 @@ class BookSearchRepositoryImpl @Inject constructor(
         db.bookSearchDao().insertBook(BookMapper.toBookEntity(book))
     }
 
-    //
-//    override suspend fun deleteBooks(book: Book) {
-//        TODO("Not yet implemented")
-//    }
-//
+    override suspend fun deleteBooks(book: Book) {
+        db.bookSearchDao().deleteBook(BookMapper.toBookEntity(book))
+    }
+
     override fun getFavoriteBooks(): Flow<List<Book>> {
         return db.bookSearchDao().getFavoriteBooks()
             .map { bookEntityList -> bookEntityList.map { it.toBook() } }
@@ -89,23 +88,20 @@ class BookSearchRepositoryImpl @Inject constructor(
 //            }
 //    }
 //
-//    override fun getFavoritePagingBooks(): Flow<PagingData<Book>> {
-//        TODO("Not yet implemented")
-//    }
 //
-//     //Paging
-//    override fun getFavoritePagingBooks(): Flow<PagingData<Book>> {
-//        val pagingSourceFactory = { db.bookSearchDao().getFavoritePagingBooks() }
-//
-//        return Pager(
-//            config = PagingConfig(
-//                pageSize = PAGING_SIZE,
-//                enablePlaceholders = false,
-//                maxSize = PAGING_SIZE * 3
-//            ),
-//            pagingSourceFactory = pagingSourceFactory
-//        ).flow
-//    }
+    // Paging
+    override fun getFavoritePagingBooks(): Flow<PagingData<Book>> {
+        val pagingSourceFactory = { db.bookSearchDao().getFavoritePagingBooks() }
+
+        return Pager(
+            config = PagingConfig(
+                pageSize = PAGING_SIZE,
+                enablePlaceholders = false,
+                maxSize = PAGING_SIZE * 3,
+            ),
+            pagingSourceFactory = pagingSourceFactory,
+        ).flow.map { pagingData -> pagingData.map { it.toBook() } }
+    }
 
     override fun searchBooksPaging(query: String, sort: String): Flow<PagingData<Book>> {
         val pagingSourceFactory = { BookSearchPagingSource(api, query, sort) }
