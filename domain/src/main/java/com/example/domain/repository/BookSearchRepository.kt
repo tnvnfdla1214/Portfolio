@@ -6,13 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface BookSearchRepository {
 
-//    suspend fun searchBooks(
-//        query: String,
-//        sort: String,
-//        page: Int,
-//        size: Int,
-//    ): Response<Search>
-
     // Room
     suspend fun insertBooks(book: Book)
 

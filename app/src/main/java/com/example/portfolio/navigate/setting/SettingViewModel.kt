@@ -8,11 +8,13 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.example.domain.repository.BookSearchRepository
+import com.example.domain.usecase.GetDeleteModeUseCase
+import com.example.domain.usecase.GetSortModeUseCase
+import com.example.domain.usecase.SaveDeleteModeUseCase
+import com.example.domain.usecase.SaveSortModeUseCase
 import com.example.portfolio.worker.CacheDeleteWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
@@ -20,24 +22,27 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingViewModel @Inject constructor(
-    private val bookSearchRepository: BookSearchRepository,
+    private val saveSortModeUseCase: SaveSortModeUseCase,
+    private val getSortModeUseCase: GetSortModeUseCase,
+    private val saveDeleteModeUseCase: SaveDeleteModeUseCase,
+    private val getDeleteModeUseCase: GetDeleteModeUseCase,
     private val workManager: WorkManager,
 ) : ViewModel() {
     // DataStore
     fun saveSortMode(value: String) = viewModelScope.launch {
-        bookSearchRepository.saveSortMode(value)
+        saveSortModeUseCase.invoke(value)
     }
 
     suspend fun getSortMode() = withContext(Dispatchers.IO) {
-        bookSearchRepository.getSortMode().first()
+        getSortModeUseCase.invoke()
     }
 
     fun saveCacheDeleteMode(value: Boolean) = viewModelScope.launch {
-        bookSearchRepository.saveCacheDeleteMode(value)
+        saveDeleteModeUseCase.invoke(value)
     }
 
     suspend fun getCacheDeleteMode() = withContext(Dispatchers.IO) {
-        bookSearchRepository.getCacheDeleteMode().first()
+        getDeleteModeUseCase.invoke()
     }
 
     // WorkManager

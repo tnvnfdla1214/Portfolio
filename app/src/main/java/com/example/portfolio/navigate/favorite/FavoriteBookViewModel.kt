@@ -19,7 +19,7 @@ import javax.inject.Inject
 class FavoriteBookViewModel @Inject constructor(
     private val saveFavoriteBookUseCase: SaveFavoriteBookUseCase,
     private val deleteFavoriteBookUseCase: DeleteFavoriteBookUseCase,
-    private val getFavoriteBooksUseCase: GetFavoriteBooksUseCase,
+    getFavoriteBooksUseCase: GetFavoriteBooksUseCase,
 ) : ViewModel() {
 
     // Paging
