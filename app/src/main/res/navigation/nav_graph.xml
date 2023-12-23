@@ -66,7 +66,7 @@
 
     <fragment
         android:id="@+id/audioFragment"
-        android:name="com.example.portfolio.audioMedia.AudioFragment"
+        android:name="com.example.portfolio.audioMedia.audio.AudioFragment"
         android:label="audioFragment"
         tools:layout="@layout/fragment_audio"/>
 
