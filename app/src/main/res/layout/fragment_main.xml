@@ -31,10 +31,10 @@
                 app:text="Custom View" />
 
             <com.example.portfolio.view.MenuItemView
-                android:id="@+id/test"
+                android:id="@+id/audio_media"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="Test"/>
+                app:text="Audio/Media"/>
 
         </LinearLayout>
 

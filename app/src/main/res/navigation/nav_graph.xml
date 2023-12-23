@@ -21,8 +21,8 @@
             android:id="@+id/action_mainFragment_to_customViewBaseFragment"
             app:destination="@id/customViewBaseFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_testFragment"
-            app:destination="@id/testFragment" />
+            android:id="@+id/action_mainFragment_to_audioMediaFragment"
+            app:destination="@id/audioMediaFragment" />
     </fragment>
 
     <fragment
@@ -52,28 +52,28 @@
         tools:layout="@layout/fragment_custom1"/>
 
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.portfolio.test.TestBaseFragment"
-        android:label="testFragment"
-        tools:layout="@layout/fragment_test_base">
+        android:id="@+id/audioMediaFragment"
+        android:name="com.example.portfolio.audioMedia.AudioMediaBaseFragment"
+        android:label="AudioMediaFragment"
+        tools:layout="@layout/fragment_audio_media_base">
         <action
-            android:id="@+id/action_testFragment_to_imageTestFragment"
-            app:destination="@id/imageTestFragment" />
+            android:id="@+id/action_audioMediaFragment_to_audioFragment"
+            app:destination="@id/audioFragment" />
         <action
-            android:id="@+id/action_testFragment_to_imageTestListFragment"
-            app:destination="@id/imageTestListFragment" />
+            android:id="@+id/action_audioMediaFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/imageTestFragment"
-        android:name="com.example.portfolio.test.ImageTestFragment"
-        android:label="testFragment"
-        tools:layout="@layout/fragment_image_test"/>
+        android:id="@+id/audioFragment"
+        android:name="com.example.portfolio.audioMedia.AudioFragment"
+        android:label="audioFragment"
+        tools:layout="@layout/fragment_audio"/>
 
     <fragment
-        android:id="@+id/imageTestListFragment"
-        android:name="com.example.portfolio.test.ImageTestListFragment"
-        android:label="testListFragment"
-        tools:layout="@layout/fragment_image_test_list"/>
+        android:id="@+id/mediaFragment"
+        android:name="com.example.portfolio.audioMedia.MediaFragment"
+        android:label="mediaFragment"
+        tools:layout="@layout/fragment_media"/>
 
 </navigation>

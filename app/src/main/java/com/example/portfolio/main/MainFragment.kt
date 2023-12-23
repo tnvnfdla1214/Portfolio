@@ -21,8 +21,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
                 NavTarget.toCustom(navController)
             }
 
-            test.setOnClickListener {
-                NavTarget.toTest(navController)
+            audioMedia.setOnClickListener {
+                NavTarget.toAudioMedia(navController)
             }
         }
     }

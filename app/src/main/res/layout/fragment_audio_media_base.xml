@@ -8,17 +8,16 @@
         android:orientation="vertical">
 
         <com.example.portfolio.view.MenuItemView
-            android:id="@+id/image_test1"
+            android:id="@+id/audio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:text="Image Loader Library 비교 테스트" />
+            app:text="Audio" />
 
         <com.example.portfolio.view.MenuItemView
-            android:id="@+id/image_test2"
+            android:id="@+id/media"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:text="Image Loader Library 비교 테스트(List)"
-            app:isMarquee="true"/>
+            app:text="Media" />
 
     </LinearLayout>
 </layout>

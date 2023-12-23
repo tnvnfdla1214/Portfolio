@@ -2,11 +2,11 @@ package com.example.portfolio.util.navigation
 
 import androidx.navigation.NavController
 import com.example.domain.model.Book
+import com.example.portfolio.audioMedia.AudioMediaBaseFragmentDirections
 import com.example.portfolio.customView.CustomViewBaseFragmentDirections
 import com.example.portfolio.main.MainFragmentDirections
 import com.example.portfolio.navigate.favorite.FavoriteBookFragmentDirections
 import com.example.portfolio.navigate.searchBook.SearchBookFragmentDirections
-import com.example.portfolio.test.TestBaseFragmentDirections
 
 object NavTarget {
 
@@ -26,16 +26,16 @@ object NavTarget {
         navController.navigate(CustomViewBaseFragmentDirections.actionCustomViewBaseFragmentToCustom1Frgment())
     }
 
-    fun toImageTest1(navController: NavController) {
-        navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
+    fun toAudio(navController: NavController) {
+        navController.navigate(AudioMediaBaseFragmentDirections.actionAudioMediaFragmentToAudioFragment())
     }
 
-    fun toImageTest2(navController: NavController) {
-        navController.navigate(TestBaseFragmentDirections.actionTestFragmentToImageTestFragment())
+    fun toMedia(navController: NavController) {
+        navController.navigate(AudioMediaBaseFragmentDirections.actionAudioMediaFragmentToMediaFragment())
     }
 
-    fun toTest(navController: NavController) {
-        navController.navigate(MainFragmentDirections.actionMainFragmentToTestFragment())
+    fun toAudioMedia(navController: NavController) {
+        navController.navigate(MainFragmentDirections.actionMainFragmentToAudioMediaFragment())
     }
 
     fun toSearchedBook(navController: NavController, book: Book) {
