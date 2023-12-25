@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-interface BookSearchApi {
+interface BookService {
 
     @Headers("Authorization: KakaoAK $API_KEY")
     @GET("v3/search/book")

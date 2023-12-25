@@ -1,23 +1,15 @@
 package com.example.data.di
 
-import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStoreFile
-import androidx.room.Room
-import com.example.data.db.BookSearchDatabase
-import com.example.data.service.BookSearchApi
-import com.example.data.util.Constants
-import com.example.data.util.Constants.BASE_URL
+import com.example.data.util.Constants.KAKAO_URL
+import com.example.data.util.Constants.MOCK_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Qualifier
@@ -29,19 +21,11 @@ class NetworkModule {
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
-    annotation class APIGsonConverter
-
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
-    annotation class APIRetrofitClient
-
-    @Qualifier
-    @Retention(AnnotationRetention.BINARY)
     annotation class KakaoRetrofitClient
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
-    annotation class APIOkHttpClient
+    annotation class MockRetrofitClient
 
     // Retrofit
     @Singleton
@@ -61,36 +45,25 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    @KakaoRetrofitClient
+    fun provideKakaoRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient)
-            .baseUrl(BASE_URL)
+            .baseUrl(KAKAO_URL)
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): BookSearchApi {
-        return retrofit.create(BookSearchApi::class.java)
+    @MockRetrofitClient
+    fun provideMockRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .baseUrl(MOCK_URL)
+            .build()
     }
-
-    // Room
-    @Singleton
-    @Provides
-    fun provideBookSearchDatabase(@ApplicationContext context: Context): BookSearchDatabase =
-        Room.databaseBuilder(
-            context.applicationContext,
-            BookSearchDatabase::class.java,
-            "favorite-books",
-        ).build()
-
-    @Singleton
-    @Provides
-    fun providePreferencesDataStore(@ApplicationContext context: Context): DataStore<Preferences> =
-        PreferenceDataStoreFactory.create(
-            produceFile = { context.preferencesDataStoreFile(Constants.DATASTORE_NAME) },
-        )
 }
 
 private const val CONNECT_TIMEOUT = 30L

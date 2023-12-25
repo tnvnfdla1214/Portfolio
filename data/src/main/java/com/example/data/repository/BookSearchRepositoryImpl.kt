@@ -13,7 +13,7 @@ import androidx.paging.map
 import com.example.data.db.BookSearchDatabase
 import com.example.data.entity.BookMapper
 import com.example.data.repository.BookSearchRepositoryImpl.PreferencesKeys.SORT_MODE
-import com.example.data.service.BookSearchApi
+import com.example.data.service.BookService
 import com.example.data.util.Constants.PAGING_SIZE
 import com.example.data.util.Sort
 import com.example.domain.model.Book
@@ -29,7 +29,7 @@ import javax.inject.Singleton
 class BookSearchRepositoryImpl @Inject constructor(
     private val db: BookSearchDatabase,
     private val dataStore: DataStore<Preferences>,
-    private val api: BookSearchApi,
+    private val api: BookService,
 ) : BookSearchRepository {
     override suspend fun insertBooks(book: Book) {
         db.bookSearchDao().insertBook(BookMapper.toBookEntity(book))

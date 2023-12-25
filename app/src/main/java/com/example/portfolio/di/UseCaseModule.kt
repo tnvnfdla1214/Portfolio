@@ -1,10 +1,12 @@
 package com.example.portfolio.di
 
 import com.example.domain.repository.BookSearchRepository
+import com.example.domain.repository.MusicRepository
 import com.example.domain.usecase.DeleteFavoriteBookUseCase
 import com.example.domain.usecase.FetchBookSearchUseCase
 import com.example.domain.usecase.GetDeleteModeUseCase
 import com.example.domain.usecase.GetFavoriteBooksUseCase
+import com.example.domain.usecase.GetMusicListUseCase
 import com.example.domain.usecase.GetSortModeUseCase
 import com.example.domain.usecase.SaveDeleteModeUseCase
 import com.example.domain.usecase.SaveFavoriteBookUseCase
@@ -66,4 +68,10 @@ class UseCaseModule {
     fun bindGetDeleteModeUseCase(
         bookSearchRepository: BookSearchRepository,
     ) = GetDeleteModeUseCase(bookSearchRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetMusicListUseCase(
+        musicRepository: MusicRepository,
+    ) = GetMusicListUseCase(musicRepository)
 }
