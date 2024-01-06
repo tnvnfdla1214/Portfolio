@@ -4,8 +4,12 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.base.doWork
+import com.example.domain.model.Music
 import com.example.domain.usecase.GetMusicListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -13,19 +17,25 @@ class AudioViewModel @Inject constructor(
     private val audioUseCase: GetMusicListUseCase,
 ) : ViewModel() {
 
-    fun getMusicList() {
+    private val _musics: MutableStateFlow<List<Music>> = MutableStateFlow(listOf())
+    val musics: StateFlow<List<Music>> = _musics.asStateFlow()
+
+    init {
+        getMusicList()
+    }
+
+    private fun getMusicList() {
         audioUseCase.invoke(Unit).doWork(
             viewModelScope,
             isLoading = {
-                Log.d("qweqwe","1111")
+                Log.d("qweqwe", "isLoading")
             },
             isSuccess = {
-                Log.d("qweqwe","2222")
-                Log.d("qweqwe","success : " + it.toString())
+                _musics.value = it
             },
             isError = {
-                Log.d("qweqwe","error : " + it.message)
-            }
+                Log.d("qweqwe", "isError : " + it.message)
+            },
         )
     }
 }

@@ -165,6 +165,8 @@ dependencies {
     // 여러 미디어 라이브러리에서 사용되는 공통 기능
     implementation "androidx.media3:media3-common:$media3_version"
 
+    implementation "com.google.android.material:material:$material_version"
+
 }
 
 kapt {
