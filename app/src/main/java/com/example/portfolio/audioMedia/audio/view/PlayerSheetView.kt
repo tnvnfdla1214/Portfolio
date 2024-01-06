@@ -23,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PlayerSheetView() : BottomSheetDialogFragment(), MediaControl by DefaultMediaControl() {
     private lateinit var binding: PlayerSheetViewBinding
 
-    private val peekHeight = 230
+    private val peekHeight = 250
 
     private val bottomSheetDialogDefaultHeight: Int
         get() = windowHeight
