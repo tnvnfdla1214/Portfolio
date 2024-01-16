@@ -1,16 +1,17 @@
 package com.example.portfolio.audioMedia.audio
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.model.Book
-import com.example.domain.model.Music
 import com.example.portfolio.R
+import com.example.portfolio.audioMedia.audio.model.PlayTrack
 import com.example.portfolio.databinding.ItemMusicBinding
 
 class MusicListAdapter(
-    private val musics: List<Music>,
+    private val tracks: List<PlayTrack> = emptyList(),
+    private val onMusicSelected: (PlayTrack) -> Unit,
 ) : RecyclerView.Adapter<MusicListAdapter.MusicListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicListViewHolder {
@@ -20,28 +21,39 @@ class MusicListAdapter(
     }
 
     override fun onBindViewHolder(holder: MusicListViewHolder, position: Int) {
-        holder.bind(musics[position])
+        holder.bind(tracks[position])
     }
 
-    override fun getItemCount(): Int = musics.size
+    override fun getItemCount(): Int = tracks.size
 
-    private var onItemClickListener: ((Book) -> Unit)? = null
-    fun setOnItemClickListener(listener: (Book) -> Unit) {
-        onItemClickListener = listener
-    }
+//    private var onItemClickListener: ((PlayTrack) -> Unit)? = null
+//    fun setOnItemClickListener(listener: (PlayTrack) -> Unit) {
+//        onItemClickListener = listener
+//    }
 
-    class MusicListViewHolder(private val binding: ItemMusicBinding) :
+    inner class MusicListViewHolder(private val binding: ItemMusicBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(music: Music) {
+        fun bind(track: PlayTrack) {
             binding.run {
-                title.text = music.title
-                artist.text = music.artist
+                title.text = track.title
+                artist.text = track.artist
+                root.setOnClickListener {
+                    togglePlaying(track.playState)
+                    track.playState = !track.playState
+                    onMusicSelected.invoke(track)
+                }
             }
             Glide.with(itemView)
-                .load(music.albumArt)
+                .load(track.albumArt)
                 .error(R.drawable.music_off)
                 .into(binding.albumArt)
+        }
+
+        fun togglePlaying(playState: Boolean) {
+            binding.playPause.setImageResource(
+                if (playState) R.drawable.ic_pause else R.drawable.ic_play,
+            )
         }
     }
 }

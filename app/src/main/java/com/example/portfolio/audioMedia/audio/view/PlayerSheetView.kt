@@ -76,6 +76,6 @@ class PlayerSheetView() : BottomSheetDialogFragment(), MediaControl by DefaultMe
         bottomSheet.layoutParams = bottomSheetLayoutParams
         BottomSheetBehavior.from<FrameLayout>(bottomSheet).skipCollapsed = false
         BottomSheetBehavior.from<FrameLayout>(bottomSheet).peekHeight = peekHeight
-        BottomSheetBehavior.from<FrameLayout>(bottomSheet).isHideable = true
+        BottomSheetBehavior.from<FrameLayout>(bottomSheet).isHideable = false
     }
 }

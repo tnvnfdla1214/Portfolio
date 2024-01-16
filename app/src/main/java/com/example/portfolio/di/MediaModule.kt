@@ -8,6 +8,7 @@ import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.LoadControl
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
+import com.example.portfolio.audioMedia.audio.handler.MusicController
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +42,7 @@ class MediaModule {
             )
             .setBackBuffer(
                 360 * MINUTE,
-                false
+                false,
             )
             .build()
 
@@ -64,21 +65,17 @@ class MediaModule {
             .setHandleAudioBecomingNoisy(true)
             .setTrackSelector(DefaultTrackSelector(context))
             .build()
-//            .apply {
-//                this.shuffleModeEnabled = shuffleStatus
-//                this.repeatMode = repeatMode
-//                this.setPlaybackSpeed(playbackSpeed)
-//            }
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideServiceHandler(
-//        player: ExoPlayer,
-//    ): AudioBookMediaController = AudioBookMediaController(
-//        player = player
-//    )
-
+    @Provides
+    @Singleton
+    fun provideServiceMusicControllerHandler(
+        @ApplicationContext context: Context,
+        player: ExoPlayer,
+    ): MusicController = MusicController(
+        context = context,
+        player = player,
+    )
 }
 
 private const val MINUTE = 60 * 1000
