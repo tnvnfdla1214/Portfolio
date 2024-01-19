@@ -20,7 +20,7 @@ class MusicController @Inject constructor(
 
     private val currentTrack: MutableLiveData<Music> = MutableLiveData()
     override fun selectTrack(track: PlayTrack, tracks: List<PlayTrack>) {
-        player.seekTo()
+        //player.seekTo()
     }
 
     override fun play() { player.play() }
@@ -75,7 +75,7 @@ class MusicController @Inject constructor(
         player.setMediaSource(mediaSourceBuilder.build())
     }
 
-    @UnstableApi
-    private fun List<PlayTrack>.getCurrentlyPlayingIndex(track: PlayTrack): Int =
-        indexOfFirst { it.mediaItem.mediaMetadata.extras?.getLong("id") == track.id }
+//    @UnstableApi
+//    private fun List<PlayTrack>.getCurrentlyPlayingIndex(track: PlayTrack): Int =
+//        indexOfFirst { it.mediaItem.mediaMetadata.extras?.getLong("id") == track.id }
 }

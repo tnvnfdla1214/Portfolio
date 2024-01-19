@@ -50,11 +50,11 @@ class AudioViewModel @Inject constructor(
     }
 
     private fun setTracks() {
-        controller.setTracks(_tracks.value)
+        //controller.setTracks(_tracks.value)
     }
 
     private fun selectTrack(track: PlayTrack) {
-        controller.selectTrack(track)
+        //controller.selectTrack(track)
     }
 
     private fun play() {

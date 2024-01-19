@@ -14,5 +14,7 @@
     <string name="screen_fragment_audio_media">Audio Media Fragment</string>
     <string name="screen_fragment_audio">Audio Fragment</string>
     <string name="screen_fragment_media">Media Fragment</string>
+    <string name="screen_fragment_coroutine_base">Coroutine Base Fragment</string>
+    <string name="screen_fragment_coroutine_test1">Coroutine test1 Fragment</string>
 
 </resources>

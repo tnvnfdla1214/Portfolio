@@ -1,9 +1,11 @@
 package com.example.portfolio.di
 
 import com.example.domain.repository.BookSearchRepository
+import com.example.domain.repository.CoroutineTestRepository
 import com.example.domain.repository.MusicRepository
 import com.example.domain.usecase.DeleteFavoriteBookUseCase
 import com.example.domain.usecase.FetchBookSearchUseCase
+import com.example.domain.usecase.GetCoroutineTest1UseCase
 import com.example.domain.usecase.GetDeleteModeUseCase
 import com.example.domain.usecase.GetFavoriteBooksUseCase
 import com.example.domain.usecase.GetMusicListUseCase
@@ -74,4 +76,10 @@ class UseCaseModule {
     fun bindGetMusicListUseCase(
         musicRepository: MusicRepository,
     ) = GetMusicListUseCase(musicRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetCoroutineTest1UseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest1UseCase(coroutineTestRepository)
 }

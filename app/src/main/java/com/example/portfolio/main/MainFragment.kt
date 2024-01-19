@@ -9,21 +9,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun initView() {
         binding.run {
-            nav.setOnClickListener {
-                NavTarget.toNavigate(navController)
-            }
+            nav.setOnClickListener { NavTarget.toNavigate(navController) }
 
-            crash.setOnClickListener {
-                NavTarget.toCrash(navController)
-            }
+            crash.setOnClickListener { NavTarget.toCrash(navController) }
 
-            custom.setOnClickListener {
-                NavTarget.toCustom(navController)
-            }
+            custom.setOnClickListener { NavTarget.toCustom(navController) }
 
-            audioMedia.setOnClickListener {
-                NavTarget.toAudioMedia(navController)
-            }
+            audioMedia.setOnClickListener { NavTarget.toAudioMedia(navController) }
+
+            coroutineTest.setOnClickListener { NavTarget.toCoroutineBase(navController) }
         }
     }
 

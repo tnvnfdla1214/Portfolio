@@ -36,6 +36,12 @@
                 android:layout_height="wrap_content"
                 app:text="Audio/Media"/>
 
+            <com.example.portfolio.view.MenuItemView
+                android:id="@+id/coroutine_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="Coroutine Test"/>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
