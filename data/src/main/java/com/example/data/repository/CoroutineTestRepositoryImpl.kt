@@ -12,27 +12,19 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
+@RequiresApi(Build.VERSION_CODES.O)
 class CoroutineTestRepositoryImpl @Inject constructor() : CoroutineTestRepository {
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
-    override suspend fun getUser(): String {
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+    override suspend fun getUser(): CoroutineTest {
         Log.d("qweqwe", "getUser")
         delay(2000)
-        return "UserPeed"
+        return CoroutineTest("User", LocalDateTime.now().format(formatter))
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override suspend fun getUserPeed(name: String): CoroutineTest {
-        delay(2000)
-        Log.d("qweqwe", "getUserPeed")
-        return CoroutineTest(name, LocalDateTime.now().format(formatter))
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun getNews(): CoroutineTest {
         Log.d("qweqwe", "getNews")
-        delay(2000)
+        delay(1000)
         return CoroutineTest("News", LocalDateTime.now().format(formatter))
     }
 }

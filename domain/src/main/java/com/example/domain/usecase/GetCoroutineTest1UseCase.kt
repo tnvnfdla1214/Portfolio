@@ -18,10 +18,9 @@ class GetCoroutineTest1UseCase(
 
                 val user = async { coroutineTestRepository.getUser() }
                 val news = async { coroutineTestRepository.getNews() }
-                val userPeed = async { coroutineTestRepository.getUserPeed(user.await()) }
 
                 result.add(news.await())
-                result.add(userPeed.await())
+                result.add(user.await())
 
                 ResultStatus.Success(result)
             }
