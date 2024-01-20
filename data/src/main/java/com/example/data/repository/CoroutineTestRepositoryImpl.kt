@@ -24,7 +24,19 @@ class CoroutineTestRepositoryImpl @Inject constructor() : CoroutineTestRepositor
 
     override suspend fun getNews(): CoroutineTest {
         Log.d("qweqwe", "getNews")
-        delay(1000)
+        delay(2000)
         return CoroutineTest("News", LocalDateTime.now().format(formatter))
+    }
+
+    override suspend fun getUserName(): String {
+        Log.d("qweqwe", "getUserName")
+        delay(2000)
+        return "UserName"
+    }
+
+    override suspend fun getUserNews(name: String): CoroutineTest {
+        Log.d("qweqwe", "getUserNews")
+        delay(1000)
+        return CoroutineTest("UserNews", LocalDateTime.now().format(formatter))
     }
 }

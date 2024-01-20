@@ -5,7 +5,11 @@ import com.example.domain.repository.CoroutineTestRepository
 import com.example.domain.repository.MusicRepository
 import com.example.domain.usecase.DeleteFavoriteBookUseCase
 import com.example.domain.usecase.FetchBookSearchUseCase
+import com.example.domain.usecase.GetCoroutineTest0UseCase
 import com.example.domain.usecase.GetCoroutineTest1UseCase
+import com.example.domain.usecase.GetCoroutineTest2GetNewsUseCase
+import com.example.domain.usecase.GetCoroutineTest2GetUserUseCase
+import com.example.domain.usecase.GetCoroutineTest3UseCase
 import com.example.domain.usecase.GetDeleteModeUseCase
 import com.example.domain.usecase.GetFavoriteBooksUseCase
 import com.example.domain.usecase.GetMusicListUseCase
@@ -79,7 +83,31 @@ class UseCaseModule {
 
     @Singleton
     @Provides
+    fun bindGetCoroutineTest0UseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest0UseCase(coroutineTestRepository)
+
+    @Singleton
+    @Provides
     fun bindGetCoroutineTest1UseCase(
         coroutineTestRepository: CoroutineTestRepository,
     ) = GetCoroutineTest1UseCase(coroutineTestRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetCoroutineTest2GetUserUseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest2GetUserUseCase(coroutineTestRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetCoroutineTest2GetNewsUseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest2GetNewsUseCase(coroutineTestRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetCoroutineTest3UseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest3UseCase(coroutineTestRepository)
 }
