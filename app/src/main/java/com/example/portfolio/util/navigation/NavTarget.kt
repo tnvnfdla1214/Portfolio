@@ -3,7 +3,6 @@ package com.example.portfolio.util.navigation
 import androidx.navigation.NavController
 import com.example.domain.model.Book
 import com.example.portfolio.audioMedia.AudioMediaBaseFragmentDirections
-import com.example.portfolio.coroutine.CoroutineBaseFragmentDirections
 import com.example.portfolio.customView.CustomViewBaseFragmentDirections
 import com.example.portfolio.main.MainFragmentDirections
 import com.example.portfolio.navigate.favorite.FavoriteBookFragmentDirections
@@ -49,9 +48,5 @@ object NavTarget {
 
     fun toCoroutineBase(navController: NavController) {
         navController.navigate(MainFragmentDirections.actionMainFragmentToCoroutineBaseFragment())
-    }
-
-    fun toCoroutineTest1(navController: NavController) {
-        navController.navigate(CoroutineBaseFragmentDirections.actionCoroutineBaseFragmentToCoroutineTest1Fragment())
     }
 }

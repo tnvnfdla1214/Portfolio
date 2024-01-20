@@ -80,17 +80,9 @@
         tools:layout="@layout/fragment_media"/>
     <fragment
         android:id="@+id/coroutineBaseFragment"
-        android:name="com.example.portfolio.coroutine.CoroutineBaseFragment"
+        android:name="com.example.portfolio.coroutine.CoroutineTestFragment"
         android:label="CoroutineBaseFragment"
-        tools:layout="@layout/fragment_coroutine_base">
-        <action
-            android:id="@+id/action_coroutineBaseFragment_to_coroutineTest1Fragment"
-            app:destination="@id/coroutineTest1Fragment" />
+        tools:layout="@layout/fragment_coroutine_test">
     </fragment>
-    <fragment
-        android:id="@+id/coroutineTest1Fragment"
-        android:name="com.example.portfolio.coroutine.CoroutineTest1Fragment"
-        android:label="CoroutineTest1Fragment"
-        tools:layout="@layout/fragment_coroutine_test1"/>
 
 </navigation>

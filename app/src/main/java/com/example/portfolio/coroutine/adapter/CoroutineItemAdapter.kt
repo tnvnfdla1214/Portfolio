@@ -1,5 +1,6 @@
 package com.example.portfolio.coroutine.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +36,7 @@ class CoroutineItemAdapter :
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setTests(newTests: List<CoroutineTest>) {
         tests.clear()
         tests.addAll(newTests)

@@ -6,12 +6,12 @@ import com.example.portfolio.R
 import com.example.portfolio.android.collectWithLifecycle
 import com.example.portfolio.base.BaseFragment
 import com.example.portfolio.coroutine.adapter.CoroutineItemAdapter
-import com.example.portfolio.databinding.FragmentCoroutineTest1Binding
+import com.example.portfolio.databinding.FragmentCoroutineTestBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CoroutineTest1Fragment :
-    BaseFragment<FragmentCoroutineTest1Binding>(R.layout.fragment_coroutine_test1) {
+class CoroutineTestFragment :
+    BaseFragment<FragmentCoroutineTestBinding>(R.layout.fragment_coroutine_test) {
     private val viewModel: CoroutineTestViewModel by viewModels()
     private val adapter = CoroutineItemAdapter()
     override fun initView() {
@@ -25,8 +25,9 @@ class CoroutineTest1Fragment :
     private fun observeViewModel() {
         viewModel.items.collectWithLifecycle(this) {
             Log.d("qweqwe", it.toString())
+            adapter.setTests(it)
         }
     }
 
-    override fun getScreenName(): String = getString(R.string.screen_fragment_coroutine_test1)
+    override fun getScreenName(): String = getString(R.string.screen_fragment_coroutine_test)
 }

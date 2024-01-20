@@ -17,11 +17,11 @@ class GetCoroutineTest1UseCase(
                 val result: MutableList<CoroutineTest> = mutableListOf()
 
                 val user = async { coroutineTestRepository.getUser() }
-                val userPeed = async { coroutineTestRepository.getUserPeed(user.await()) }
                 val news = async { coroutineTestRepository.getNews() }
+                val userPeed = async { coroutineTestRepository.getUserPeed(user.await()) }
 
-                result.add(userPeed.await())
                 result.add(news.await())
+                result.add(userPeed.await())
 
                 ResultStatus.Success(result)
             }
