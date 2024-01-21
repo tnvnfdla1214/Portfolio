@@ -9,4 +9,6 @@ interface CoroutineTestRepository {
 
     suspend fun getUserName(): String
     suspend fun getUserNews(name: String): CoroutineTest
+
+    suspend fun getCoroutineException(): CoroutineTest
 }

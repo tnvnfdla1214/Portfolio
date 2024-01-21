@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi
 import com.example.domain.model.CoroutineTest
 import com.example.domain.repository.CoroutineTestRepository
 import kotlinx.coroutines.delay
+import java.lang.NullPointerException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -38,5 +39,11 @@ class CoroutineTestRepositoryImpl @Inject constructor() : CoroutineTestRepositor
         Log.d("qweqwe", "getUserNews")
         delay(1000)
         return CoroutineTest("UserNews", LocalDateTime.now().format(formatter))
+    }
+
+    override suspend fun getCoroutineException(): CoroutineTest {
+        Log.d("qweqwe", "getException")
+        delay(2000)
+        throw NullPointerException("this is null")
     }
 }

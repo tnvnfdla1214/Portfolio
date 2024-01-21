@@ -10,6 +10,7 @@ import com.example.domain.usecase.GetCoroutineTest1UseCase
 import com.example.domain.usecase.GetCoroutineTest2GetNewsUseCase
 import com.example.domain.usecase.GetCoroutineTest2GetUserUseCase
 import com.example.domain.usecase.GetCoroutineTest3UseCase
+import com.example.domain.usecase.GetCoroutineTest4ExceptionUseCase
 import com.example.domain.usecase.GetDeleteModeUseCase
 import com.example.domain.usecase.GetFavoriteBooksUseCase
 import com.example.domain.usecase.GetMusicListUseCase
@@ -110,4 +111,10 @@ class UseCaseModule {
     fun bindGetCoroutineTest3UseCase(
         coroutineTestRepository: CoroutineTestRepository,
     ) = GetCoroutineTest3UseCase(coroutineTestRepository)
+
+    @Singleton
+    @Provides
+    fun bindGetCoroutineTest4ExceptionUseCase(
+        coroutineTestRepository: CoroutineTestRepository,
+    ) = GetCoroutineTest4ExceptionUseCase(coroutineTestRepository)
 }

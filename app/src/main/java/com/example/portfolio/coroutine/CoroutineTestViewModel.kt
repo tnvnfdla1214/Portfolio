@@ -1,6 +1,7 @@
 package com.example.portfolio.coroutine
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import com.example.domain.usecase.GetCoroutineTest1UseCase
 import com.example.domain.usecase.GetCoroutineTest2GetNewsUseCase
 import com.example.domain.usecase.GetCoroutineTest2GetUserUseCase
 import com.example.domain.usecase.GetCoroutineTest3UseCase
+import com.example.domain.usecase.GetCoroutineTest4ExceptionUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -25,15 +27,17 @@ class CoroutineTestViewModel @Inject constructor(
     private val getCoroutineTest2GetUserUseCase: GetCoroutineTest2GetUserUseCase,
     private val getCoroutineTest2GetNewsUseCase: GetCoroutineTest2GetNewsUseCase,
     private val getCoroutineTest3UseCase: GetCoroutineTest3UseCase,
+    private val getCoroutineTest4ExceptionUseCase: GetCoroutineTest4ExceptionUseCase,
 ) : ViewModel() {
     val testItem: MutableLiveData<CoroutineTest> = MutableLiveData()
     private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss")
 
     init {
-        test0()
+        //test0()
         // test1()
         // test2()
         // test3()
+        test4()
     }
 
     /**
@@ -97,6 +101,26 @@ class CoroutineTestViewModel @Inject constructor(
                 testItem.value = CoroutineTest("끝", LocalDateTime.now().format(formatter))
             },
             isError = { },
+
+        )
+    }
+
+    /**
+     * API 호출 중 Exception이 발생하면 error를 호출한다.
+     * Exception을 핸들링 하기 용이하다.
+     */
+    private fun test4() {
+        testItem.value = CoroutineTest("시작", LocalDateTime.now().format(formatter))
+        getCoroutineTest4ExceptionUseCase.invoke(Unit).doWork(
+            viewModelScope,
+            isLoading = { },
+            isSuccess = {
+                it.forEach { i -> testItem.value = i }
+                testItem.value = CoroutineTest("끝", LocalDateTime.now().format(formatter))
+            },
+            isError = {
+                Log.d("qweqwe", "it : " + it)
+            },
 
         )
     }
