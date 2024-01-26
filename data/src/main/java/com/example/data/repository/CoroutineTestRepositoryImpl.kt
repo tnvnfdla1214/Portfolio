@@ -18,14 +18,14 @@ class CoroutineTestRepositoryImpl @Inject constructor() : CoroutineTestRepositor
 
     private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss")
     override suspend fun getUser(): CoroutineTest {
+        delay(1000)
         Log.d("qweqwe", "getUser")
-        delay(2000)
         return CoroutineTest("User", LocalDateTime.now().format(formatter))
     }
 
     override suspend fun getNews(): CoroutineTest {
-        Log.d("qweqwe", "getNews")
         delay(2000)
+        Log.d("qweqwe", "getNews")
         return CoroutineTest("News", LocalDateTime.now().format(formatter))
     }
 
