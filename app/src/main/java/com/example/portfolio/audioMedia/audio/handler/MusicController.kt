@@ -1,35 +1,64 @@
 package com.example.portfolio.audioMedia.audio.handler
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ConcatenatingMediaSource2
-import androidx.media3.exoplayer.source.MediaSource
-import com.example.domain.model.Music
+import androidx.media3.session.MediaSession
 import com.example.portfolio.audioMedia.audio.model.PlayTrack
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+@UnstableApi
 class MusicController @Inject constructor(
     @ApplicationContext private val context: Context,
     val player: ExoPlayer,
+    val mediaSession: MediaSession,
 ) : MusicControl {
 
-    private val currentTrack: MutableLiveData<Music> = MutableLiveData()
-    override fun selectTrack(track: PlayTrack, tracks: List<PlayTrack>) {
-        //player.seekTo()
+    private val currentTrackIndex = MutableLiveData(-1)
+
+    init {
+        setupPlayerListener()
     }
 
-    override fun play() { player.play() }
+    private fun setupPlayerListener() {
+        player.addListener(object : Player.Listener {
+            override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
+                super.onMediaItemTransition(mediaItem, reason)
+                currentTrackIndex.value = player.currentMediaItemIndex
+            }
+        })
+    }
 
-    override fun pause() { player.pause() }
+    override fun selectTrack(track: PlayTrack, tracks: List<PlayTrack>) {
+        val playingIndex = tracks.getCurrentlyPlayingIndex(track.mid)
+        player.seekTo(playingIndex, 0)
+    }
 
-    override fun stop() { player.stop() }
+    override fun play() {
+        player.play()
+    }
 
-    override fun release() { player.release() }
+    override fun pause() {
+        player.pause()
+    }
+
+    override fun stop() {
+        player.stop()
+    }
+
+    override fun release() {
+        player.release()
+    }
+
+    override fun prepare() {
+        player.prepare()
+    }
 
     override fun isPlaying(): Boolean = player.isPlaying
 
@@ -57,25 +86,23 @@ class MusicController @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getCurrentlyPlayingTrack(): LiveData<Music> = currentTrack
-    override fun isPlayingTrack(track: PlayTrack): Boolean {
-        TODO("Not yet implemented")
+    override fun getCurrentlyPlayingTrackIndex(): LiveData<Int> = currentTrackIndex
+    override fun isPlayingTrack(tracks: List<PlayTrack>, track: PlayTrack): Boolean {
+        currentTrackIndex.value?.run { return tracks[this].mid == track.mid } ?: return false
     }
 
-    @UnstableApi
     override fun setTracks(tracks: List<PlayTrack>) {
-        val mediaSourceBuilder = ConcatenatingMediaSource2.Builder()
-        mediaSourceBuilder.useDefaultMediaSourceFactory(context)
+        val concatenatingMediaSource = ConcatenatingMediaSource2.Builder()
+        concatenatingMediaSource.useDefaultMediaSourceFactory(context)
 
         tracks.forEach {
             val mediaItem = it.toBaseMediaSource().build()
-            mediaSourceBuilder.add(mediaItem, it.duration)
+            concatenatingMediaSource.add(mediaItem, it.duration)
         }
 
-        player.setMediaSource(mediaSourceBuilder.build())
+        player.setMediaSource(concatenatingMediaSource.build())
     }
 
-//    @UnstableApi
-//    private fun List<PlayTrack>.getCurrentlyPlayingIndex(track: PlayTrack): Int =
-//        indexOfFirst { it.mediaItem.mediaMetadata.extras?.getLong("id") == track.id }
+    private fun List<PlayTrack>.getCurrentlyPlayingIndex(mid: String): Int =
+        indexOfFirst { it.mid == mid }
 }

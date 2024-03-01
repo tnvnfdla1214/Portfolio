@@ -8,6 +8,7 @@ import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.LoadControl
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
+import androidx.media3.session.MediaSession
 import com.example.portfolio.audioMedia.audio.handler.MusicController
 import dagger.Module
 import dagger.Provides
@@ -15,7 +16,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-
+@UnstableApi
 @Module
 @InstallIn(SingletonComponent::class)
 class MediaModule {
@@ -28,7 +29,6 @@ class MediaModule {
             .setUsage(C.USAGE_MEDIA)
             .build()
 
-    @UnstableApi
     @Provides
     @Singleton
     fun provideLoadControl(): LoadControl =
@@ -48,7 +48,6 @@ class MediaModule {
 
     @Provides
     @Singleton
-    @UnstableApi
     fun providePlayer(
         @ApplicationContext context: Context,
         audioAttributes: AudioAttributes,
@@ -69,12 +68,21 @@ class MediaModule {
 
     @Provides
     @Singleton
+    fun provideMediaSession(
+        @ApplicationContext context: Context,
+        player: ExoPlayer,
+    ): MediaSession = MediaSession.Builder(context, player).build()
+
+    @Provides
+    @Singleton
     fun provideServiceMusicControllerHandler(
         @ApplicationContext context: Context,
         player: ExoPlayer,
+        mediaSession: MediaSession,
     ): MusicController = MusicController(
         context = context,
         player = player,
+        mediaSession = mediaSession,
     )
 }
 

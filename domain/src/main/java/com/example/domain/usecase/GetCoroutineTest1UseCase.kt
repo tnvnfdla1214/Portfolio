@@ -16,8 +16,8 @@ class GetCoroutineTest1UseCase(
             coroutineScope {
                 val result: MutableList<CoroutineTest> = mutableListOf()
 
-                val user = async { coroutineTestRepository.getUser() }
-                val news = async { coroutineTestRepository.getNews() }
+                val user = async { coroutineTestRepository.getUser() } //1초
+                val news = async { coroutineTestRepository.getNews() } //1초
                 result.add(news.await())
                 result.add(user.await())
 

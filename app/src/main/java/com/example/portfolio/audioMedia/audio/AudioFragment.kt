@@ -2,6 +2,7 @@ package com.example.portfolio.audioMedia.audio
 
 import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.media3.exoplayer.SimpleExoPlayer
 import com.example.portfolio.R
 import com.example.portfolio.android.collectWithLifecycle
 import com.example.portfolio.audioMedia.audio.view.PlayerSheetView

@@ -39,8 +39,8 @@ class MusicListAdapter(
                 title.text = track.title
                 artist.text = track.artist
                 root.setOnClickListener {
-                    togglePlaying(track.playState)
                     track.playState = !track.playState
+                    togglePlaying(track.playState)
                     onMusicSelected.invoke(track)
                 }
             }
@@ -50,7 +50,8 @@ class MusicListAdapter(
                 .into(binding.albumArt)
         }
 
-        fun togglePlaying(playState: Boolean) {
+        private fun togglePlaying(playState: Boolean) {
+            Log.d("qweqwe","playState : " + playState)
             binding.playPause.setImageResource(
                 if (playState) R.drawable.ic_pause else R.drawable.ic_play,
             )

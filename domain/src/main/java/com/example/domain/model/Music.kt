@@ -1,7 +1,7 @@
 package com.example.domain.model
 
 data class Music(
-    val id: Long,
+    val mid: String,
     val title: String,
     val artist: String,
     val albumArt: String,

@@ -8,7 +8,7 @@ import androidx.media3.common.util.UnstableApi
 import com.example.domain.model.Music
 
 data class PlayTrack(
-    val id: Long,
+    val mid: String,
     val title: String,
     val artist: String,
     val albumArt: String,
@@ -27,7 +27,7 @@ data class PlayTrack(
                     .setArtworkUri(Uri.parse(this.albumArt))
                     .setExtras(
                         Bundle().apply {
-                            putLong("id", id)
+                            putString("mid", mid)
                             putLong("duration", duration)
                         },
                     )
@@ -39,7 +39,7 @@ data class PlayTrack(
         fun fromMusics(musics: List<Music>): List<PlayTrack> {
             return musics.map {
                 PlayTrack(
-                    id = it.id,
+                    mid = it.mid,
                     title = it.title,
                     artist = it.artist,
                     albumArt = it.albumArt,

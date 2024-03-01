@@ -3,6 +3,7 @@ package com.example.portfolio.audioMedia.audio
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.util.UnstableApi
 import com.example.domain.base.doWork
 import com.example.domain.usecase.GetMusicListUseCase
 import com.example.portfolio.audioMedia.audio.handler.MusicController
@@ -14,6 +15,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
+@UnstableApi
 @HiltViewModel
 class AudioViewModel @Inject constructor(
     private val audioUseCase: GetMusicListUseCase,
@@ -28,36 +30,37 @@ class AudioViewModel @Inject constructor(
     }
 
     fun selectTrackList(track: PlayTrack) {
-        Log.d("qweqwe","1111")
         when {
             !isPlaying() -> {
-                Log.d("qweqwe","isPlaying")
+                Log.d("qweqwe", "1111111")
                 setTracks()
-                selectTrack(track)
+                selectTrack(track, _tracks.value)
                 play()
             }
 
-            isPlayingTrack(track) -> {
-                Log.d("qweqwe","isPlayingTrack")
+            isPlayingTrack(tracks.value, track) -> {
+                Log.d("qweqwe", "222222")
                 pause()
             }
 
             else -> {
-                selectTrack(track)
+                Log.d("qweqwe", "3333333")
+                selectTrack(track, _tracks.value)
                 play()
             }
         }
     }
 
     private fun setTracks() {
-        //controller.setTracks(_tracks.value)
+        controller.setTracks(_tracks.value)
     }
 
-    private fun selectTrack(track: PlayTrack) {
-        //controller.selectTrack(track)
+    private fun selectTrack(track: PlayTrack, tracks: List<PlayTrack>) {
+        controller.selectTrack(track, tracks)
     }
 
     private fun play() {
+        controller.prepare()
         controller.play()
     }
 
@@ -67,20 +70,15 @@ class AudioViewModel @Inject constructor(
 
     private fun isPlaying(): Boolean = controller.isPlaying()
 
-    private fun isPlayingTrack(track: PlayTrack): Boolean = controller.isPlayingTrack(track)
+    private fun isPlayingTrack(tracks: List<PlayTrack>, track: PlayTrack): Boolean =
+        controller.isPlayingTrack(tracks, track)
 
     private fun getMusicList() {
         audioUseCase.invoke(Unit).doWork(
             viewModelScope,
-            isLoading = {
-                Log.d("qweqwe", "isLoading")
-            },
-            isSuccess = {
-                _tracks.value = fromMusics(it)
-            },
-            isError = {
-                Log.d("qweqwe", "isError : " + it.message)
-            },
+            isLoading = { },
+            isSuccess = { _tracks.value = fromMusics(it) },
+            isError = { },
         )
     }
 }

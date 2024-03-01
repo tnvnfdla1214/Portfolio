@@ -16,6 +16,8 @@ interface MusicControl {
 
     fun release()
 
+    fun prepare()
+
     fun isPlaying(): Boolean
 
     fun seekToProgress(progress: Int)
@@ -30,9 +32,9 @@ interface MusicControl {
 
     fun setPlaybackSpeed(speed: Float)
 
-    fun getCurrentlyPlayingTrack(): LiveData<Music>
+    fun getCurrentlyPlayingTrackIndex(): LiveData<Int>
 
-    fun isPlayingTrack(track: PlayTrack): Boolean
+    fun isPlayingTrack(tracks: List<PlayTrack>, track: PlayTrack): Boolean
 
     fun setTracks(tracks: List<PlayTrack>)
 }
