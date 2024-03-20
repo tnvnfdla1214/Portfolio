@@ -1,6 +1,5 @@
 package com.example.portfolio.audioMedia.audio
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.util.UnstableApi
@@ -32,19 +31,16 @@ class AudioViewModel @Inject constructor(
     fun selectTrackList(track: PlayTrack) {
         when {
             !isPlaying() -> {
-                Log.d("qweqwe", "1111111")
                 setTracks()
                 selectTrack(track, _tracks.value)
                 play()
             }
 
             isPlayingTrack(tracks.value, track) -> {
-                Log.d("qweqwe", "222222")
                 pause()
             }
 
             else -> {
-                Log.d("qweqwe", "3333333")
                 selectTrack(track, _tracks.value)
                 play()
             }

@@ -10,10 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.example.portfolio.R
 import com.example.portfolio.audioMedia.audio.view.control.DefaultMediaControl
 import com.example.portfolio.audioMedia.audio.view.control.MediaControl
 import com.example.portfolio.databinding.PlayerSheetViewBinding
-import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -38,6 +38,11 @@ class PlayerSheetView() : BottomSheetDialogFragment(), MediaControl by DefaultMe
             activityContext.windowManager.defaultDisplay.getMetrics(displayMetrics)
             return displayMetrics.heightPixels
         }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.TransparentBottomSheetDialogTheme)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,7 +71,8 @@ class PlayerSheetView() : BottomSheetDialogFragment(), MediaControl by DefaultMe
 
     private fun setupRatio(bottomSheetDialog: BottomSheetDialog) {
         val bottomSheet: FrameLayout =
-            bottomSheetDialog.findViewById(R.id.design_bottom_sheet) ?: return
+            bottomSheetDialog.findViewById(com.google.android.material.R.id.design_bottom_sheet)
+                ?: return
 
         BottomSheetBehavior.from<FrameLayout>(bottomSheet).state =
             BottomSheetBehavior.STATE_COLLAPSED

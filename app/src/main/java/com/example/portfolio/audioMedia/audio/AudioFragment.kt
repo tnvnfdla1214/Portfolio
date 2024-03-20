@@ -1,8 +1,6 @@
 package com.example.portfolio.audioMedia.audio
 
-import android.util.Log
 import androidx.fragment.app.viewModels
-import androidx.media3.exoplayer.SimpleExoPlayer
 import com.example.portfolio.R
 import com.example.portfolio.android.collectWithLifecycle
 import com.example.portfolio.audioMedia.audio.view.PlayerSheetView
@@ -20,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class AudioFragment : BaseFragment<FragmentAudioBinding>(R.layout.fragment_audio) {
     private val viewModel by viewModels<AudioViewModel>()
     private lateinit var musicListAdapter: MusicListAdapter
+    private val playerDialog: PlayerSheetView = PlayerSheetView()
     override fun initView() {
         observeViewModel()
         //showPlayerView()
@@ -33,9 +32,7 @@ class AudioFragment : BaseFragment<FragmentAudioBinding>(R.layout.fragment_audio
     }
 
     private fun showPlayerView() {
-        val dialog = PlayerSheetView()
-
-        dialog.show(parentFragmentManager, "PLAYER_BOTTOM_SHEET_TAG")
+        playerDialog.show(parentFragmentManager, "PLAYER_BOTTOM_SHEET_TAG")
     }
 
     override fun getScreenName(): String = getString(R.string.screen_fragment_audio)
